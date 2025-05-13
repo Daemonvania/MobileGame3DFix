@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: ca6e31567202c224eb9b7c3283b81681
+timeCreated: 1478623608
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/MobileAds/Scripts/Internal/Advertisers/VungleImplementation.cs
+  uploadId: 748774

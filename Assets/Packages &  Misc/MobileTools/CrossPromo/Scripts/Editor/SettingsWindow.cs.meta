@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 88ba33503efb540498901a67c9658a43
+timeCreated: 1559979858
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/CrossPromo/Scripts/Editor/SettingsWindow.cs
+  uploadId: 748774

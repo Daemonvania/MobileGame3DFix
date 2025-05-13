@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a3dfb02235c47fd4e9da5f49259266de
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/MobileAds/Scripts/Editor/MobileAdsSettingsData.cs
+  uploadId: 748774

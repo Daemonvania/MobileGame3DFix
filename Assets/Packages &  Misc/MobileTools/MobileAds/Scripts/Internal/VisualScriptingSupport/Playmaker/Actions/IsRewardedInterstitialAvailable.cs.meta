@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a76c8087ccdd01941b53d674b7ade8b1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/MobileAds/Scripts/Internal/VisualScriptingSupport/Playmaker/Actions/IsRewardedInterstitialAvailable.cs
+  uploadId: 748774

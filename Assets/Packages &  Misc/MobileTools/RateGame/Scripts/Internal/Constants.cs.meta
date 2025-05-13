@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 30e1c98c5df3b454fb534118f8fbcf61
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/RateGame/Scripts/Internal/Constants.cs
+  uploadId: 748774

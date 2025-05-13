@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 86857aaac7146244692d927d98454501
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/GameServices/Scripts/Internal/VisualScriptingSupport/PlaymakerSupport/IncrementAchievement.cs
+  uploadId: 748774

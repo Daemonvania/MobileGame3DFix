@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: aba0f8d81c2fc594ca24e3fa8d8a7155
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/Notifications/Scripts/Internal/VisualScriptingSupport/Playmaker/CancelAllNotifications.cs
+  uploadId: 748774

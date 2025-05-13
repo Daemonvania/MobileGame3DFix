@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: f9937d0d69ea16f4ab05424f8c5c7500
+timeCreated: 1580464966
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/Localization/Scripts/ToUse/UnityUILocalizationComponent.cs
+  uploadId: 748774

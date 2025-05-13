@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 16a064fa53a0bf046974a58837af05fc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/GameServices/Scripts/Internal/VisualScriptingSupport/PlaymakerSupport/ShowAllLeaderboards.cs
+  uploadId: 748774

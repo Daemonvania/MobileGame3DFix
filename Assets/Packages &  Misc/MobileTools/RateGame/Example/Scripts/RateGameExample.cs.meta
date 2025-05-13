@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 0dd0c155e4e9eb240bf4b8aaed48be71
+timeCreated: 1549556912
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/RateGame/Example/Scripts/RateGameExample.cs
+  uploadId: 748774

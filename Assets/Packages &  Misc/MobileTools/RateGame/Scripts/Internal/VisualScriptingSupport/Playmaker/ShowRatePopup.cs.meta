@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: bd757de0b839c264490395906c72e8dc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/RateGame/Scripts/Internal/VisualScriptingSupport/Playmaker/ShowRatePopup.cs
+  uploadId: 748774

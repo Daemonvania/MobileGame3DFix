@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: cfaf45566ca41f745911ff11c1789024
+timeCreated: 1541940565
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/Jumpy/Scripts/UIScripts/AbstractClases/GenericInterfaceController.cs
+  uploadId: 748774

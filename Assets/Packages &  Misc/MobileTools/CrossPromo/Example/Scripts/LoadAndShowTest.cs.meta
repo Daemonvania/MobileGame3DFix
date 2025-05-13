@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 72ce0cd670841384398595c37d30a43f
+timeCreated: 1560189823
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/CrossPromo/Example/Scripts/LoadAndShowTest.cs
+  uploadId: 748774

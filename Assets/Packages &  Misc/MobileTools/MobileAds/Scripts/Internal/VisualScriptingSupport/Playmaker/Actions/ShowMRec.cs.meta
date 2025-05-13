@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 91c9afa95f7125047b0c4d5f06880230
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/MobileAds/Scripts/Internal/VisualScriptingSupport/Playmaker/Actions/ShowMRec.cs
+  uploadId: 748774

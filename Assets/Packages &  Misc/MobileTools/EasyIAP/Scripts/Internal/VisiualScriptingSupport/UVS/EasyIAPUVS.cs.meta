@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ba2cdec3a1caa0b4587472b397a70137
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/EasyIAP/Scripts/Internal/VisiualScriptingSupport/UVS/EasyIAPUVS.cs
+  uploadId: 748774

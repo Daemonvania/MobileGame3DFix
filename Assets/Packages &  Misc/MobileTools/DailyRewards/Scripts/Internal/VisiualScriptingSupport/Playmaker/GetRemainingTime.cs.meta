@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 72e2143d42fe367488a99847c9c9e1d5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/DailyRewards/Scripts/Internal/VisiualScriptingSupport/Playmaker/GetRemainingTime.cs
+  uploadId: 748774

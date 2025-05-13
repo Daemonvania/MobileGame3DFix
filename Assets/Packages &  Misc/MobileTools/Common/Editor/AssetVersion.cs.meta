@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: e42ab54c25b644e44a0d540bb410b7ac
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/Common/Editor/AssetVersion.cs
+  uploadId: 748774

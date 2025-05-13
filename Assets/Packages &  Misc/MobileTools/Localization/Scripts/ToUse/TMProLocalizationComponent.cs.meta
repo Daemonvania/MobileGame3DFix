@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 9c6bcf41ef916f54f853db669903abfa
+timeCreated: 1580897181
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/Localization/Scripts/ToUse/TMProLocalizationComponent.cs
+  uploadId: 748774

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: f8dd660c1b66e99438e4bb58d1254a40
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266719
+  packageName: Mobile Tools v2.0 + Example Game
+  packageVersion: 2.0.21
+  assetPath: Assets/Gley/AllPlatformsSave/Scripts/Editor/SettingsWindowProperties.cs
+  uploadId: 748774
