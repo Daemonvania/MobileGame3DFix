@@ -5,6 +5,9 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] TMP_Text scoreText;
+
+    private GameManager gameManager;
+    
     int score = 0;
     int consecutiveHits = 0;
     
@@ -22,6 +25,8 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        Debug.Log(gameManager);
         scoreText.text = "Score: " + score;
     }
 
@@ -37,6 +42,12 @@ public class ScoreManager : MonoBehaviour
         {
             score++;
             consecutiveHits = 0;
+            gameManager.SetOnFire(false);
+        }
+
+        if (consecutiveHits == 3)
+        {
+            gameManager.SetOnFire(true);
         }
         scoreText.text = "Score: " + score;
     }

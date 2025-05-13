@@ -117,6 +117,14 @@ public class Hand : MonoBehaviour
             }
             else
             {
+                if (GameManager.isOnFire)
+                {
+                    //todo observer or dependency just not this
+                    GameManager.isOnFire = false;
+                    OnBrickHit?.Invoke();
+                    isStrong = false;
+                    return;
+                }
                 isDropping = false;
                 OnBrickMiss?.Invoke();
                 StartCoroutine(Reset(0));
@@ -160,13 +168,6 @@ public class Hand : MonoBehaviour
             StopCoroutine(strongCoroutine);
             // resetCoroutine = StartCoroutine(WaitToReset());
         }
-    }
-
-    private IEnumerator WaitToReset()
-    {
-        yield return new WaitForSeconds(timeToReset);
-        OnBrickMiss?.Invoke();
-        StartCoroutine(Reset(0));
     }
 
     private IEnumerator WaitForStrong()

@@ -6,7 +6,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Hand hand;
     [SerializeField] private Brick brick;
     
-    public static readonly bool IsPlaying = true;
+    public static bool IsPlaying = true;
+    public static bool isOnFire = false;
     private void OnEnable()
     {
         Hand.OnBrickHit += OnHit;
@@ -40,4 +41,17 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(hand.Reset(0.1f));
     }
+
+    public void SetOnFire(bool fire)
+    {
+        if (fire)
+        {
+            isOnFire = true;
+        }
+        else
+        {
+            isOnFire = false;
+        }
+    }
+    
 }
