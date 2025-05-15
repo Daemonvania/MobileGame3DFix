@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 using Lean.Touch;
@@ -8,38 +10,50 @@ public class DrawCut : MonoBehaviour
     Vector3 pointA;
     Vector3 pointB;
 
+    [SerializeField] float CutDelay = 0.3f;
+    
     private LineRenderer cutRender;
     private bool animateCut;
 
     private Camera cam;
 
+    private Coroutine cutCoroutine;
+    
+    private Vector3 lastWorldPos;
+    private bool hasLastWorldPos;
+    
     void Start()
     {
-        cam = FindObjectOfType<Camera>();
+        cam = GetComponent<Camera>();
         cutRender = GetComponent<LineRenderer>();
         cutRender.startWidth = 0.05f;
         cutRender.endWidth = 0.05f;
 
-        LeanTouch.OnFingerDown += HandleFingerDown;
-        LeanTouch.OnFingerUpdate += HandleFingerUpdate;
-        LeanTouch.OnFingerUp += HandleFingerUp;
+        // LeanTouch.OnFingerDown += HandleFingerDown;
+        // LeanTouch.OnFingerUpdate += HandleFingerUpdate;
+        // LeanTouch.OnFingerUp += HandleFingerUp;
     }
 
     void OnDestroy()
     {
-        LeanTouch.OnFingerDown -= HandleFingerDown;
-        LeanTouch.OnFingerUpdate -= HandleFingerUpdate;
-        LeanTouch.OnFingerUp -= HandleFingerUp;
+        // LeanTouch.OnFingerDown -= HandleFingerDown;
+        // LeanTouch.OnFingerUpdate -= HandleFingerUpdate;
+        // LeanTouch.OnFingerUp -= HandleFingerUp;
     }
 
-    private void HandleFingerDown(LeanFinger finger)
+    public void OnExternalFingerDown(LeanFinger finger)
     {
         Vector3 screenPos = finger.ScreenPosition;
         screenPos.z = -cam.transform.position.z;
         pointA = cam.ScreenToWorldPoint(screenPos);
+        
+        lastWorldPos = pointA;
+        hasLastWorldPos = true;
+        // cutCoroutine = StartCoroutine(CutCoroutine(finger));
+        
     }
 
-    private void HandleFingerUpdate(LeanFinger finger)
+    public void OnExternalFingerUpdate(LeanFinger finger)
     {
         animateCut = false;
 
@@ -52,9 +66,27 @@ public class DrawCut : MonoBehaviour
         cutRender.SetPosition(1, currentPoint);
         cutRender.startColor = Color.gray;
         cutRender.endColor = Color.gray;
+        
+        // Direction change detection
+        if (hasLastWorldPos)
+        {
+            Vector3 prevDir = (lastWorldPos - pointA).normalized;
+            Vector3 currentDir = (currentPoint - lastWorldPos).normalized;
+
+            if (prevDir != Vector3.zero && currentDir != Vector3.zero)
+            {
+                float angle = Vector3.Angle(prevDir, currentDir);
+                if (angle > 70f)
+                {
+                    OnExternalFingerUp(finger);
+                    OnExternalFingerDown(finger);
+                }
+            }
+        }
+        lastWorldPos = currentPoint;
     }
 
-    private void HandleFingerUp(LeanFinger finger)
+    public void OnExternalFingerUp(LeanFinger finger)
     {
         Vector3 screenPos = finger.ScreenPosition;
         screenPos.z = -cam.transform.position.z;
@@ -62,6 +94,16 @@ public class DrawCut : MonoBehaviour
 
         CreateSlicePlane();
 
+        // if (cutCoroutine != null)
+        // {
+        //     StopCoroutine(cutCoroutine);
+        //     cutCoroutine = null;
+        // }
+        // else
+        // {
+        //     OnExternalFingerDown(finger);
+        // }
+        
         cutRender.positionCount = 2;
         cutRender.SetPosition(0, pointA);
         cutRender.SetPosition(1, pointB);
@@ -76,20 +118,29 @@ public class DrawCut : MonoBehaviour
         }
     }
 
+    // private IEnumerator CutCoroutine(LeanFinger finger)
+    // {
+    //     yield return new WaitForSeconds(CutDelay); 
+    //     cutCoroutine = null;
+    //    OnExternalFingerUp(finger);
+    // }
     void CreateSlicePlane()
     {
         Vector3 pointInPlane = (pointA + pointB) / 2;
         Vector3 cutPlaneNormal = Vector3.Cross((pointA - pointB), (pointA - cam.transform.position)).normalized;
         Quaternion orientation = Quaternion.FromToRotation(Vector3.up, cutPlaneNormal);
 
-        var all = Physics.OverlapBox(pointInPlane, new Vector3(100, 0.01f, 100), orientation);
+        var all = Physics.OverlapBox(pointInPlane, new Vector3(10, 0.01f, 10), orientation);
 
         foreach (var hit in all)
         {
-            MeshFilter filter = hit.gameObject.GetComponentInChildren<MeshFilter>();
-            if (filter != null)
+            if (hit.gameObject.CompareTag("CutItem"))
             {
-                Cutter.Cut(hit.gameObject, pointInPlane, cutPlaneNormal);
+                MeshFilter filter = hit.gameObject.GetComponentInChildren<MeshFilter>();
+                if (filter != null)
+                {
+                    Cutter.Cut(hit.gameObject, pointInPlane, cutPlaneNormal);
+                }
             }
         }
     }

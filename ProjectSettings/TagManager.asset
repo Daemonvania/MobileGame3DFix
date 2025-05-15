@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HitPoint
   - GameManager
+  - CutItem
   layers:
   - Default
   - TransparentFX

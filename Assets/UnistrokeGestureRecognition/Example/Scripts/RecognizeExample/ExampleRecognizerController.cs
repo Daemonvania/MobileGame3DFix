@@ -10,7 +10,7 @@ namespace UnistrokeGestureRecognition.Example {
         [SerializeField] private List<ExampleGesturePattern> _patterns;
         [SerializeField, Range(0.6f, 1f)] private float _minimumScore = 0.8f;
 
-        [SerializeField] private PathDrawerBase _pathDrawer;
+        // [SerializeField] private PathDrawerBase _pathDrawer;
         [SerializeField] private NameController _nameController;
         [Space]
         [SerializeField] private Camera _camera;
@@ -28,7 +28,7 @@ namespace UnistrokeGestureRecognition.Example {
         }
 
         private void Start() {
-            _pathDrawer.Show();
+            // _pathDrawer.Show();
 
             // // Subscribe to LeanTouch events
             // LeanTouch.OnFingerDown += OnFingerDown;
@@ -99,7 +99,7 @@ namespace UnistrokeGestureRecognition.Example {
                 Vector3 worldPoint = _camera.ViewportToWorldPoint(new Vector3(adjustedViewportPos.x, adjustedViewportPos.y, _camera.nearClipPlane + 10f)); // adjust Z as needed
 
                 _gestureRecorder.RecordPoint(screenPosition);
-                _pathDrawer.AddPoint(worldPoint);
+                // _pathDrawer.AddPoint(worldPoint);
             }
         }
 
@@ -109,7 +109,7 @@ namespace UnistrokeGestureRecognition.Example {
 
         private void Clear() {
             _nameController.Clear();
-            _pathDrawer.Clear();
+            // _pathDrawer.Clear();
             _gestureRecorder.Reset();
         }
 
