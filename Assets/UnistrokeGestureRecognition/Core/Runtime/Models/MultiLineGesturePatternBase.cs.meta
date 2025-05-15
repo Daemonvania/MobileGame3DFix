@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 7c36e966a7e87814585eb8dff82c6b12
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Core/Runtime/Models/MultiLineGesturePatternBase.cs
+  uploadId: 746337

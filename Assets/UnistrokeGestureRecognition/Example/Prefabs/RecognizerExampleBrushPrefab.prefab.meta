@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ed30cc4943293684eb87d5076993932a
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Example/Prefabs/RecognizerExampleBrushPrefab.prefab
+  uploadId: 746337

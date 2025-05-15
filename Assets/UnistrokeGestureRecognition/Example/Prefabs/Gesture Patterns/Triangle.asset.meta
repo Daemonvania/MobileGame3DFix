@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e05f96e6515b8fc4f9c0d830896221ec
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Example/Prefabs/Gesture Patterns/Triangle.asset
+  uploadId: 746337

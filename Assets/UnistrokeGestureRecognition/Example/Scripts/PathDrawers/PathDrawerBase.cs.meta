@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a00ae913c670895479a8c651a9fbed3a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Example/Scripts/PathDrawers/PathDrawerBase.cs
+  uploadId: 746337

@@ -1,0 +1,79 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/UnistrokeGestureRecognition/Core/Editor/GestureEditorWindow/Resources/GestureEditorStyleSheet.uss?fileID=7433441132597879392&amp;guid=eb993cbc2a0bf0a458fc6b8f631b2fea&amp;type=3#GestureEditorStyleSheet" />
+    <ui:VisualElement style="flex-direction: row; flex-grow: 1; background-color: rgb(32, 32, 32);">
+        <ui:VisualElement class="container" style="flex-grow: 0; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; width: 300px; overflow: hidden;">
+            <ui:VisualElement class="container-title" style="flex-direction: row;">
+                <ui:Label text="Actions" display-tooltip-when-elided="true" style="-unity-font-style: normal; color: rgb(168, 168, 168);" />
+            </ui:VisualElement>
+            <ui:VisualElement style="padding-left: 3px;">
+                <ui:VisualElement style="flex-direction: row; justify-content: flex-start; align-items: center; margin-top: 5px;">
+                    <ui:Label text="Flip points:" display-tooltip-when-elided="true" style="min-width: 150px;" />
+                    <ui:Button text="X" display-tooltip-when-elided="true" name="flipXButton" style="width: 50px;" />
+                    <ui:Button text="Y" display-tooltip-when-elided="true" name="flipYButton" style="width: 50px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-direction: row; justify-content: flex-start; align-items: center; margin-top: 5px;">
+                    <ui:Label text="Reverse Path:" display-tooltip-when-elided="true" style="min-width: 150px; color: rgb(196, 196, 196);" />
+                    <ui:Button text="Reverse" display-tooltip-when-elided="true" name="reverseButton" style="flex-grow: 1;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-direction: row; justify-content: flex-start; align-items: center; margin-top: 5px;">
+                    <ui:Label text="Clear Path:" display-tooltip-when-elided="true" style="min-width: 150px; color: rgb(196, 196, 196);" />
+                    <ui:Button text="Clear" display-tooltip-when-elided="true" name="clearButton" style="flex-grow: 1;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="container-title" style="flex-direction: row; margin-top: 5px; border-left-color: rgb(32, 32, 32); border-right-color: rgb(32, 32, 32); border-top-color: rgb(32, 32, 32); border-bottom-color: rgb(32, 32, 32); border-top-width: 3px;">
+                <ui:Label text="Settings" display-tooltip-when-elided="true" style="-unity-font-style: normal; color: rgb(168, 168, 168);" />
+            </ui:VisualElement>
+            <ui:DropdownField label="Snap factor" index="1" choices="0" name="snapDropdown" tabindex="0" view-data-key="GestureEditorSnapFactorDropDown" style="margin-top: 5px;" />
+            <ui:Toggle label="Snap to grid:" name="snapToggle" binding-path="_isSnap" view-data-key="GestureEditorSnapCheckBox" />
+            <ui:Toggle label="Show direction:" value="false" name="directionToggle" view-data-key="GestureEditorDirectionCheckBox" />
+            <ui:Slider picking-mode="Ignore" label="Points size:" value="60" high-value="100" name="pointsSizeSlider" view-data-key="GestureEditorPointSizeSlider" low-value="0" inverted="false" />
+            <uie:ColorField label="Points color:" value="#3E92CCFF" name="pointsColorPicker" view-data-key="GestureEditorPointColorPicker" />
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; align-items: center; justify-content: center;">
+            <ui:VisualElement style="margin-right: auto; margin-left: auto; margin-top: 10px; margin-bottom: 10px; background-color: rgb(43, 43, 43); border-left-color: rgb(89, 89, 89); border-right-color: rgb(89, 89, 89); border-top-color: rgb(89, 89, 89); border-bottom-color: rgb(89, 89, 89); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; overflow: hidden; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px;">
+                <ui:VisualElement name="trackArea" class="grid" style="width: 400px; height: 400px; visibility: visible; overflow: hidden; display: flex; opacity: 1; flex-grow: 0; flex-direction: column; flex-shrink: 1; flex-basis: auto; min-width: 400px; min-height: 400px; max-width: 400px; max-height: 400px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="position: absolute; left: 1px; right: auto; bottom: 1px; flex-direction: row; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgb(89, 89, 89); border-right-color: rgb(89, 89, 89); border-top-color: rgb(89, 89, 89); border-bottom-color: rgb(89, 89, 89); border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; align-items: flex-end;">
+                <ui:VisualElement name="editModeHints" style="display: flex; visibility: visible; overflow: visible;">
+                    <ui:Label text="LMB - Add point" display-tooltip-when-elided="true" class="buttons-hints" />
+                    <ui:Label text="HOLD LMB - Move point" display-tooltip-when-elided="true" class="buttons-hint buttons-hints" />
+                    <ui:Label text="RMB - Delete point" display-tooltip-when-elided="true" class="buttons-hints" />
+                    <ui:Label text="MMB - Enter CUT mode" display-tooltip-when-elided="true" class="buttons-hints" />
+                </ui:VisualElement>
+                <ui:VisualElement name="cutModeHints">
+                    <ui:Label text="LMB - Cut line" display-tooltip-when-elided="true" class="buttons-hints" />
+                    <ui:Label text="HOLD LMB - Cut line and drag point" display-tooltip-when-elided="true" class="buttons-hints" />
+                    <ui:Label text="MMB - Exit CUT mode" display-tooltip-when-elided="true" class="buttons-hints" />
+                </ui:VisualElement>
+                <ui:VisualElement name="dragModeHints">
+                    <ui:Label text="HOLD LMB - Drag point" display-tooltip-when-elided="true" class="buttons-hints" />
+                    <ui:Label text="REALESE LMB - Exit DRAG mode" display-tooltip-when-elided="true" class="buttons-hints" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="position: absolute; left: 1px; right: auto; flex-direction: row; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgb(89, 89, 89); border-right-color: rgb(89, 89, 89); border-top-color: rgb(89, 89, 89); border-bottom-color: rgb(89, 89, 89); border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; top: 1px;">
+                <ui:Label text="Edit Mode" display-tooltip-when-elided="true" name="editModeLabel" class="buttons-hints" />
+                <ui:Label text="Cut Mode" display-tooltip-when-elided="true" name="cutModeLabel" class="buttons-hints" />
+                <ui:Label text="Drag Mode" display-tooltip-when-elided="true" name="dragModeLabel" class="buttons-hints" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="linesRightPanel" class="container" style="width: 170px; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px;">
+            <ui:VisualElement class="container-title" style="flex-direction: row;">
+                <ui:Label text="Lines" display-tooltip-when-elided="true" style="-unity-font-style: normal; color: rgb(168, 168, 168);" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1;">
+                <ui:VisualElement style="flex-direction: column; justify-content: flex-start; align-items: stretch; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px;">
+                    <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" name="linesScrollView" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" style="flex-grow: 1; background-color: rgb(65, 65, 65); padding-bottom: 2px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-left-color: rgb(48, 48, 48); border-right-color: rgb(48, 48, 48); border-top-color: rgb(48, 48, 48); border-bottom-color: rgb(36, 36, 36); border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; padding-top: 2px; padding-right: 0; padding-left: 0; display: flex;" />
+                    <ui:Button text="+" display-tooltip-when-elided="true" name="addLineButton" style="flex-grow: 0; align-items: stretch; margin-top: -1px; margin-right: 0; margin-bottom: 0; margin-left: 10px; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 20px; border-top-right-radius: 0; border-top-left-radius: 0; border-top-width: 0; font-size: 15px; height: 15px; background-color: rgb(65, 65, 65);" />
+                    <ui:VisualElement class="line-cell" style="display: none; visibility: visible;">
+                        <uie:ColorField label="Color" value="RGBA(0.000, 1.000, 1.000, 1.000)" class="line-field" style="flex-grow: 1; align-items: center; justify-content: center;" />
+                        <ui:VisualElement>
+                            <ui:Button text="↑" display-tooltip-when-elided="true" class="move-line-button" />
+                            <ui:Button display-tooltip-when-elided="true" text="↓" class="move-line-button" />
+                        </ui:VisualElement>
+                        <ui:Button display-tooltip-when-elided="true" text="✕" class="delete-line-button" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a505cb806cf94c04997196ef0fc1e664
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Core/Runtime/GestureRecognizer/GestureRecognizer.cs
+  uploadId: 746337

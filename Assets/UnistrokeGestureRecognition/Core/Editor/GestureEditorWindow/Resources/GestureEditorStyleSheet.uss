@@ -1,0 +1,115 @@
+#marker {
+    border-radius: 50%;
+}
+
+.iconButton {
+    justify-content: center;
+    align-items: center;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.iconButton .icon {
+    width: 15px;
+    height: 15px;
+}
+
+.point {
+    border-radius: 50%;
+}
+
+.point:hover {
+    background-color: rgb(62, 52, 248);
+}
+
+.buttons-hints {
+    color: rgb(196, 196, 196);
+    font-size: 10px;
+    margin-bottom: 1px;
+}
+
+.container {
+    background-color: rgb(56, 56, 56);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow: hidden;
+}
+
+.container-title {
+    background-color: rgb(40, 40, 40);
+    color: rgb(168, 168, 168);
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    padding-left: 3px;
+}
+
+.line-field > .unity-color-field__label {
+    min-width: auto;
+}
+
+.line-field > .unity-color-field__input {
+    min-width: auto;
+    width: 10px;
+    flex-grow: 1;
+    background-color: rgba(56, 56, 56, 255);
+    overflow: visible;
+    border-top-left-radius: 3px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.line-field {
+    flex-grow: 1;
+}
+
+.line-cell {
+    flex-direction: row;
+    margin-top: 2px;
+    margin-right: 0;
+    margin-bottom: 2px;
+    margin-left: 0;
+    padding-top: 2px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    padding-left: 5px;
+}
+
+.move-line-button {
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    font-size: 12px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    height: 12px;
+}
+
+.delete-line-button {
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.selected {
+    background-color: rgba(44, 93, 135, 255);
+}
+
+.line-cell:hover {
+    background-color: rgba(77, 77, 77, 255);
+}

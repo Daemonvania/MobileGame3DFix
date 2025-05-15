@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a9d831fd8f88cb145aaed981eb5878af
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Core/Runtime/Models/LinePath.cs
+  uploadId: 746337

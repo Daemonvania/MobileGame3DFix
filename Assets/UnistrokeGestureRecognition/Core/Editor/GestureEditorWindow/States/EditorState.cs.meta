@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: fcee28f395dd5fc43b97c5717639d8f3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Core/Editor/GestureEditorWindow/States/EditorState.cs
+  uploadId: 746337

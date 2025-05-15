@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6a66bdf5fba93d742b020e799571113e
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Example/Scripts/UnistrokeGestureRecognition.Example.asmdef
+  uploadId: 746337

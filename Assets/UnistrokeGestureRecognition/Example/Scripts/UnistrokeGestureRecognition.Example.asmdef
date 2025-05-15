@@ -1,0 +1,18 @@
+{
+    "name": "UnistrokeGestureRecognition.Example",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8f1bd430fd1a9404e988ccc464ed7472",
+        "GUID:d8b63aba1907145bea998dd612889d6b",
+        "GUID:16b7f44ce4c5b0b4a83222e5eae8799b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 62b8978886bfb5c459cdb0ce8f780217
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Core/Editor/GesturePatternInspector/GesturePatternInspectorBase.cs
+  uploadId: 746337

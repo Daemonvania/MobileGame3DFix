@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ceb7892efb3ffd9439deb8330f48bc6d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Example/Prefabs/DotMaterial.mat
+  uploadId: 746337

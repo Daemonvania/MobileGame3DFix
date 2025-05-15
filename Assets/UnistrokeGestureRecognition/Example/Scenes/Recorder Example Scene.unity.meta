@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: be64d7ab2117f8146ab172fb2e309a69
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Example/Scenes/Recorder Example Scene.unity
+  uploadId: 746337

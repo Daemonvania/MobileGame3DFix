@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e549ad957b417584ca0e372dd879ff68
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Example/Prefabs/Gesture Patterns/Spiral.asset
+  uploadId: 746337

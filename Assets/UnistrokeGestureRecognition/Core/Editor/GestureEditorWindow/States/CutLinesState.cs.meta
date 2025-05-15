@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: bcf509179662723468c019e77a7c44f2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Core/Editor/GestureEditorWindow/States/CutLinesState.cs
+  uploadId: 746337

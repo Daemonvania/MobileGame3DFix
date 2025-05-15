@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 75af5e83509bb164aa28223cfb097762
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Example/Scripts/PathDrawers/DotedPathDrawer.cs
+  uploadId: 746337

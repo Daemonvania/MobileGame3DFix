@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a16b299bb1bbabe4c8cd11498b1d5d1f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Core/Editor/GestureEditorWindow/Elements/LineCellElement.cs
+  uploadId: 746337

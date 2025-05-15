@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 759e7b5af0a9b4342b530100ecf769c4
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Core/Editor/UnistrokeGestureRecognition.Editor.asmdef
+  uploadId: 746337

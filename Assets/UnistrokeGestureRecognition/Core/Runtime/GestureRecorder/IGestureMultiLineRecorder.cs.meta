@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 73c4e51bd4c45d945884fe348daed10b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Core/Runtime/GestureRecorder/IGestureMultiLineRecorder.cs
+  uploadId: 746337

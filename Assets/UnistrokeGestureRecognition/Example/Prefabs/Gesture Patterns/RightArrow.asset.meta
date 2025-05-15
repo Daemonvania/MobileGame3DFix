@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0dabe6210198f2641b6b5333029f7632
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260736
+  packageName: Unistroke Gesture Recognition
+  packageVersion: 1.1
+  assetPath: Assets/UnistrokeGestureRecognition/Example/Prefabs/Gesture Patterns/RightArrow.asset
+  uploadId: 746337
