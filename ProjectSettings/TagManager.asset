@@ -7,6 +7,8 @@ TagManager:
   - HitPoint
   - GameManager
   - CutItem
+  - RoundManager
+  - SpawnedObjectParent
   layers:
   - Default
   - TransparentFX

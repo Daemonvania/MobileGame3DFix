@@ -10,7 +10,7 @@ public enum Angle
 public class MouseClickCut : MonoBehaviour
 {
     public Angle angle;
-
+	//DEPRECATED
     void Update(){
 
 		if(Input.GetMouseButtonDown(0)){
@@ -22,16 +22,16 @@ public class MouseClickCut : MonoBehaviour
 				if(victim.tag != "Safe")
 				{
                    
-                    if(angle == Angle.Up)
-					{
-                        Cutter.Cut(victim, hit.point, Vector3.up);
-						
-                    } 
-					else if (angle == Angle.Forward)
-					{
-						Cutter.Cut(victim, hit.point, Vector3.forward);
-						
-					}
+     //                if(angle == Angle.Up)
+					// {
+     //                    Cutter.Cut(victim, hit.point, Vector3.up);
+					// 	
+     //                } 
+					// else if (angle == Angle.Forward)
+					// {
+					// 	Cutter.Cut(victim, hit.point, Vector3.forward);
+					// 	
+					// }
 				}
 			}
 

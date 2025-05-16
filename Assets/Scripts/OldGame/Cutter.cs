@@ -6,7 +6,8 @@ public class Cutter : MonoBehaviour
     private static bool isBusy;
     private static Mesh originalMesh;
 
-    public static void Cut(GameObject originalGameObject, Vector3 contactPoint, Vector3 cutNormal)
+    
+    public static void Cut(GameObject originalGameObject, Vector3 contactPoint, Vector3 cutNormal, Transform spawnedObjectParent)
     {
         if(isBusy)
             return;
@@ -54,6 +55,8 @@ public class Cutter : MonoBehaviour
         right.transform.position = originalGameObject.transform.position + (Vector3.up * .05f);
         right.transform.rotation = originalGameObject.transform.rotation;
         right.transform.localScale = originalGameObject.transform.localScale;
+        
+        right.transform.SetParent(spawnedObjectParent);
         right.AddComponent<MeshRenderer>();
         
         mats = new Material[finishedRightMesh.subMeshCount];

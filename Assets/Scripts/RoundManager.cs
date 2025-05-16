@@ -74,7 +74,6 @@ public class RoundManager : MonoBehaviour
     
     private void OnSliceCompleted(ExampleRecognizerController.ScreenHalf screen)
     {
-        Debug.Log($"Slice completed on {screen}");
         if (!canCut) return;
         canCut = false;
         if (screen == ExampleRecognizerController.ScreenHalf.top)

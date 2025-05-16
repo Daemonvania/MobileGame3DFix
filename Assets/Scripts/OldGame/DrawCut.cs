@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
@@ -21,7 +22,16 @@ public class DrawCut : MonoBehaviour
     
     private Vector3 lastWorldPos;
     private bool hasLastWorldPos;
+
+    Transform spawnedObjectParent;
     
+    private void Awake()
+    {
+        spawnedObjectParent = GameObject.FindGameObjectWithTag("SpawnedObjectParent").transform;
+    }
+
+   
+
     void Start()
     {
         cam = GetComponent<Camera>();
@@ -139,7 +149,7 @@ public class DrawCut : MonoBehaviour
                 MeshFilter filter = hit.gameObject.GetComponentInChildren<MeshFilter>();
                 if (filter != null)
                 {
-                    Cutter.Cut(hit.gameObject, pointInPlane, cutPlaneNormal);
+                    Cutter.Cut(hit.gameObject, pointInPlane, cutPlaneNormal, spawnedObjectParent);
                 }
             }
         }
