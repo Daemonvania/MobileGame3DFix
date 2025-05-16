@@ -6,27 +6,43 @@ using Lean.Touch;
 
 namespace UnistrokeGestureRecognition.Example {
     public sealed class ExampleRecognizerController : MonoBehaviour {
+
+        public delegate void OnSliceCompleted(ScreenHalf screen);
+
+        public enum ScreenHalf
+        {
+            top,
+            bottom
+        }
         
         [SerializeField] private List<ExampleGesturePattern> _patterns;
         [SerializeField, Range(0.6f, 1f)] private float _minimumScore = 0.8f;
 
         // [SerializeField] private PathDrawerBase _pathDrawer;
         [SerializeField] private NameController _nameController;
-        [Space]
-        [SerializeField] private Camera _camera;
-        
+        [SerializeField]
+         private Camera _camera;
+
+        [Space] [SerializeField] private ScreenHalf screen;
+       
+        public event OnSliceCompleted onSliceCompleted;
       
         private IGestureRecorder _gestureRecorder;
         private IGestureRecognizer<ExampleGesturePattern> _recognizer;
         private JobHandle? _recognizeJob;
 
         private LeanFinger _trackingFinger;
+        
 
         private void Awake() {
             _gestureRecorder = new GestureRecorder(256, 0.1f);
             _recognizer = new GestureRecognizer<ExampleGesturePattern>(_patterns, 256);
         }
 
+        public void SetPattern(ExampleGesturePattern pattern)
+        {
+            _patterns[0] = pattern;
+        }
         private void Start() {
             // _pathDrawer.Show();
 
@@ -56,6 +72,7 @@ namespace UnistrokeGestureRecognition.Example {
             Debug.Log($"{result.Pattern.Name}: {result.Score}");
 
             if (result.Score >= _minimumScore) {
+                onSliceCompleted?.Invoke(screen);
                 _nameController.Set($"{result.Pattern.Name}: {result.Score:0.00}");
             }
 
