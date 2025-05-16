@@ -33,6 +33,7 @@ namespace UnistrokeGestureRecognition.Example {
 
         private LeanFinger _trackingFinger;
         
+        private ExampleGesturePattern _currentPattern;
 
         private void Awake() {
             _gestureRecorder = new GestureRecorder(256, 0.1f);
@@ -41,7 +42,7 @@ namespace UnistrokeGestureRecognition.Example {
 
         public void SetPattern(ExampleGesturePattern pattern)
         {
-            _patterns[0] = pattern;
+            _currentPattern = pattern;
         }
         private void Start() {
             // _pathDrawer.Show();
@@ -70,8 +71,10 @@ namespace UnistrokeGestureRecognition.Example {
 
             RecognizeResult<ExampleGesturePattern> result = _recognizer.Result;
             Debug.Log($"{result.Pattern.Name}: {result.Score}");
-
-            if (result.Score >= _minimumScore) {
+            Debug.Log(result.Pattern);
+            Debug.Log(_currentPattern);
+            
+            if (result.Pattern == _currentPattern && result.Score >= _minimumScore) {
                 onSliceCompleted?.Invoke(screen);
                 _nameController.Set($"{result.Pattern.Name}: {result.Score:0.00}");
             }
