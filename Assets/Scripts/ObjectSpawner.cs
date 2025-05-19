@@ -48,7 +48,16 @@ public class ObjectSpawner : MonoBehaviour
         {
             Instantiate(selectedObject, spawnpoint.position, Quaternion.identity, spawnedObjectParent);
         }
+
+        StartCoroutine(EnableCutting(0.7f));
     }
+    
+    private IEnumerator EnableCutting(float timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        roundManager.SetCanCut(true);
+    }
+    
     private void OnRoundEnd(ExampleRecognizerController.ScreenHalf screen)
     {
         

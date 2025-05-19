@@ -53,8 +53,12 @@ public class RoundManager : MonoBehaviour
         {
             recognizer.SetPattern(possiblePatterns[randomIndex]);
         }
-        canCut = true;
         onRoundStart?.Invoke();
+    }
+    
+    public void SetCanCut(bool canCut)
+    {
+        this.canCut = canCut;
     }
     
     void RoundEnded()
