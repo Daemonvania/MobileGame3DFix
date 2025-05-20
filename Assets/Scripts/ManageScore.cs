@@ -10,8 +10,13 @@ public class ManageScore : MonoBehaviour
     //todo can do only one array of sprites and use the index 
     [SerializeField] private Image[] player1ScoreSprites;
     [SerializeField] private Image[] player2ScoreSprites;
+
+    [SerializeField] private Image p1Checkmark;
+    [SerializeField] private Image p2Checkmark;
     [Space]
-    
+    [SerializeField] private Sprite checkMark ;
+    [SerializeField] private Sprite cross;
+    [Space]
     //todo populate the score sprites from here..?
     [SerializeField] int scoreToWin = 6;
     
@@ -21,24 +26,44 @@ public class ManageScore : MonoBehaviour
 
     private void OnEnable()
     {
+        roundManager.onRoundStart += OnRoundStart;
         roundManager.onRoundEnd += OnRoundEnd;
+        roundManager.onSliceFailed += FailedCut;
     }
     private void OnDisable()
     {
+        roundManager.onRoundStart -= OnRoundStart;
         roundManager.onRoundEnd -= OnRoundEnd;
+        roundManager.onSliceFailed -= FailedCut;
     }
 
+    private void OnRoundStart()
+    {
+        p1Checkmark.gameObject.SetActive(false);
+        p2Checkmark.gameObject.SetActive(false);
+    }
     void OnRoundEnd(ExampleRecognizerController.ScreenHalf screen)
     {
+        p1Checkmark.gameObject.SetActive(true);
+        p2Checkmark.gameObject.SetActive(true);
         if (screen == ExampleRecognizerController.ScreenHalf.top)
         {
             player1ScoreSprites[player1Score].color = Color.blue;
             player1Score++;
+            p1Checkmark.sprite = checkMark;
+            p2Checkmark.sprite = cross;
         }
-        else
+        else if (screen == ExampleRecognizerController.ScreenHalf.bottom)
         {
             player2ScoreSprites[player2Score].color = Color.red;
             player2Score++;
+            p2Checkmark.sprite = checkMark;
+            p1Checkmark.sprite = cross;
+        }
+        else
+        {
+            p1Checkmark.sprite = cross;
+            p2Checkmark.sprite = cross;
         }
         if (player1Score >= scoreToWin)
         {
@@ -52,6 +77,20 @@ public class ManageScore : MonoBehaviour
         }
         
         Debug.Log($"Player 1 Score: {player1Score}, Player 2 Score: {player2Score}");
+    }
+
+    private void FailedCut(ExampleRecognizerController.ScreenHalf screen)
+    {
+        if (screen == ExampleRecognizerController.ScreenHalf.top)
+        {
+            p1Checkmark.gameObject.SetActive(true);
+            p1Checkmark.sprite = cross;
+        }
+        else if (screen == ExampleRecognizerController.ScreenHalf.bottom)
+        {
+            p2Checkmark.gameObject.SetActive(true);
+            p2Checkmark.sprite = cross;
+        }
     }
     
     public int GetPlayer1Score()

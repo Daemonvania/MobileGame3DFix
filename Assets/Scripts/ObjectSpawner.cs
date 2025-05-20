@@ -44,9 +44,11 @@ public class ObjectSpawner : MonoBehaviour
     private IEnumerator SpawnObject(GameObject selectedObject, float timeToSpawn)
     {
         yield return new WaitForSeconds(timeToSpawn);
+    
         foreach (var spawnpoint in spawnPoints)
         {
-            Instantiate(selectedObject, spawnpoint.position, Quaternion.identity, spawnedObjectParent);
+            GameObject spawnedObject = Instantiate(selectedObject, spawnpoint.position, Quaternion.identity, spawnedObjectParent);
+            spawnedObject.GetComponentInChildren<Arrow>().SetArrowImage(roundManager.GetSelectedCutSO().gestureImage);
         }
 
         StartCoroutine(EnableCutting(0.7f));

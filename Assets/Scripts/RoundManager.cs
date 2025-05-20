@@ -12,8 +12,9 @@ public class RoundManager : MonoBehaviour
     
     public delegate void RoundStart();
     public delegate void RoundEnd(ExampleRecognizerController.ScreenHalf screen);
+    public delegate void SliceFailed(ExampleRecognizerController.ScreenHalf screen);
     
-    [SerializeField] private ExampleGesturePattern[] possiblePatterns;
+    [SerializeField] private CutSO[] cutSOs;
     
     [SerializeField] private ExampleRecognizerController[] patternRecognizers;
     
@@ -21,9 +22,14 @@ public class RoundManager : MonoBehaviour
     
     public event RoundStart onRoundStart;
     public event RoundEnd onRoundEnd;
+    public event SliceFailed onSliceFailed;
 
     private bool canCut = false;
-
+    private bool topCanCut = false;
+    private bool bottomCanCut = false;
+    
+    private CutSO selectedCutSO;
+    
     private void Start()
     {
         StartRound();
@@ -48,21 +54,25 @@ public class RoundManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void StartRound()
     {
-        int randomIndex = Random.Range(0, possiblePatterns.Length);
+        int randomIndex = Random.Range(0, cutSOs.Length);
         foreach (var recognizer in patternRecognizers)
         {
-            recognizer.SetPattern(possiblePatterns[randomIndex]);
+            recognizer.SetPattern(cutSOs[randomIndex].pattern);
         }
+        selectedCutSO = cutSOs[randomIndex];
         onRoundStart?.Invoke();
     }
     
     public void SetCanCut(bool canCut)
     {
         this.canCut = canCut;
+        topCanCut = canCut;
+        bottomCanCut = canCut;
     }
     
     void RoundEnded()
     {
+        canCut = false;
         foreach (var recognizer in patternRecognizers)
         {
             recognizer.SetPattern(null);
@@ -76,24 +86,46 @@ public class RoundManager : MonoBehaviour
         StartRound();
     }
     
-    private void OnSliceCompleted(ExampleRecognizerController.ScreenHalf screen)
+    private void OnSliceCompleted(ExampleRecognizerController.ScreenHalf screen, bool isCorrect)
     {
+        //todo maybe remove canCut cause I have the split ones
         if (!canCut) return;
-        canCut = false;
-        if (screen == ExampleRecognizerController.ScreenHalf.top)
-        {
-           onRoundEnd?.Invoke(ExampleRecognizerController.ScreenHalf.top);
-        }
-        else
-        {
-           onRoundEnd?.Invoke(ExampleRecognizerController.ScreenHalf.bottom);
-        }
-        RoundEnded();
+            if (screen == ExampleRecognizerController.ScreenHalf.top && topCanCut)
+            {
+                if (isCorrect)
+                {
+                    onRoundEnd?.Invoke(ExampleRecognizerController.ScreenHalf.top);
+                    RoundEnded();
+                }
+                else
+                {
+                    topCanCut = false;
+                    onSliceFailed?.Invoke(ExampleRecognizerController.ScreenHalf.top);
+                }
+            }
+            else if (screen == ExampleRecognizerController.ScreenHalf.bottom && bottomCanCut)
+            {
+                if (isCorrect)
+                {
+                    onRoundEnd?.Invoke(ExampleRecognizerController.ScreenHalf.bottom);
+                    RoundEnded();
+                }
+                else
+                {
+                    bottomCanCut = false;
+                    onSliceFailed?.Invoke(ExampleRecognizerController.ScreenHalf.bottom);
+                }
+            }
+            
+            if (!topCanCut && !bottomCanCut)
+            {
+                onRoundEnd?.Invoke(ExampleRecognizerController.ScreenHalf.none);
+                RoundEnded();
+            }
     }
 
-    // Update is called once per frame
-    void Update()
+    public CutSO GetSelectedCutSO()
     {
-        
+        return selectedCutSO;
     }
 }

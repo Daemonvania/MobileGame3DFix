@@ -7,12 +7,13 @@ using Lean.Touch;
 namespace UnistrokeGestureRecognition.Example {
     public sealed class ExampleRecognizerController : MonoBehaviour {
 
-        public delegate void OnSliceCompleted(ScreenHalf screen);
+        public delegate void OnSliceCompleted(ScreenHalf screen, bool isCorrect);
 
         public enum ScreenHalf
         {
             top,
-            bottom
+            bottom,
+            none
         }
         
         [SerializeField] private List<ExampleGesturePattern> _patterns;
@@ -75,8 +76,12 @@ namespace UnistrokeGestureRecognition.Example {
             Debug.Log(_currentPattern);
             
             if (result.Pattern == _currentPattern && result.Score >= _minimumScore) {
-                onSliceCompleted?.Invoke(screen);
-                _nameController.Set($"{result.Pattern.Name}: {result.Score:0.00}");
+                onSliceCompleted?.Invoke(screen, true);
+                // _nameController.Set($"{result.Pattern.Name}: {result.Score:0.00}");
+            }
+            else
+            {
+                onSliceCompleted?.Invoke(screen, false);
             }
 
             _recognizeJob = null;
@@ -124,7 +129,19 @@ namespace UnistrokeGestureRecognition.Example {
         }
 
         private void RecognizeRecordedGesture() {
-            _recognizeJob = _recognizer.ScheduleRecognition(_gestureRecorder.Path);
+            // Retrieve the path
+            var path = _gestureRecorder.Path;
+
+            if (screen == ScreenHalf.top)
+            {
+                // Flip the path horizontally
+                for (int i = 0; i < path.Length; i++)
+                {
+                    path[i] = new Vector2(Screen.width - path[i].x, path[i].y);
+                }
+            }
+
+            _recognizeJob = _recognizer.ScheduleRecognition(path);
         }
 
         private void Clear() {

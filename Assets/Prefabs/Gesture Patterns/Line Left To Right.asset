@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Line Left To Right
   m_EditorClassIdentifier: 
   _path:
-  - {x: 0, y: 1}
-  - {x: 1, y: 1}
-  _scalingMode: 1
+  - {x: 0, y: 0.5}
+  - {x: 1, y: 0.5}
+  _scalingMode: 0
   _directionSensitivity: 1
   _rotationSensitivity: 1
   _editorPath:
-  - {x: 25, y: 200}
-  - {x: 400, y: 200}
-  _editorLineColor: {r: 1, g: 0, b: 0, a: 1}
-  _name: Line Left To Right
+  - {x: 50, y: 200}
+  - {x: 350, y: 200}
+  _editorLineColor: {r: 1, g: 0.7253797, b: 0, a: 1}
+  _name: Line
