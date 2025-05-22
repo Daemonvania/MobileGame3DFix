@@ -17,24 +17,42 @@ public class ManageScore : MonoBehaviour
     [SerializeField] private Sprite checkMark ;
     [SerializeField] private Sprite cross;
     [Space]
-    //todo populate the score sprites from here..?
+    [SerializeField] private GameObject p1Victory;
+    [SerializeField] private GameObject p2Victory;
+    
+    [SerializeField] private GameObject p1Defeat;
+    [SerializeField] private GameObject p2Defeat;
+    
+    [Space]
     [SerializeField] int scoreToWin = 6;
     
     private int player1Score = 0;
     private int player2Score = 0;
 
 
+    private void Start()
+    {
+        p1Victory.SetActive(false);
+        p2Victory.SetActive(false);
+        p1Defeat.SetActive(false);
+        p2Defeat.SetActive(false);
+        p1Checkmark.gameObject.SetActive(false);
+        p2Checkmark.gameObject.SetActive(false);
+    }
+
     private void OnEnable()
     {
         roundManager.onRoundStart += OnRoundStart;
         roundManager.onRoundEnd += OnRoundEnd;
         roundManager.onSliceFailed += FailedCut;
+        roundManager.onResetGame += ResetScore;
     }
     private void OnDisable()
     {
         roundManager.onRoundStart -= OnRoundStart;
         roundManager.onRoundEnd -= OnRoundEnd;
         roundManager.onSliceFailed -= FailedCut;
+        roundManager.onResetGame -= ResetScore;
     }
 
     private void OnRoundStart()
@@ -67,18 +85,53 @@ public class ManageScore : MonoBehaviour
         }
         if (player1Score >= scoreToWin)
         {
-            Debug.Log("Player 1 wins!");
-            // Handle player 1 win
+            ShowVictoryScreen(ExampleRecognizerController.ScreenHalf.top);
         }
         else if (player2Score >= scoreToWin)
         {
-            Debug.Log("Player 2 wins!");
-            // Handle player 2 win
+            ShowVictoryScreen(ExampleRecognizerController.ScreenHalf.bottom);
         }
-        
-        Debug.Log($"Player 1 Score: {player1Score}, Player 2 Score: {player2Score}");
     }
 
+    void ShowVictoryScreen(ExampleRecognizerController.ScreenHalf screen)
+    {
+        roundManager.StopGame();
+        
+        roundManager.SetCanCut(false);
+        p1Checkmark.gameObject.SetActive(false);
+        p2Checkmark.gameObject.SetActive(false);
+        if (screen == ExampleRecognizerController.ScreenHalf.top)
+        {
+            p1Victory.SetActive(true);
+            p2Defeat.SetActive(true);
+        }
+        else if (screen == ExampleRecognizerController.ScreenHalf.bottom)
+        {
+            p2Victory.SetActive(true);
+            p1Defeat.SetActive(true);
+        }
+        
+    }
+
+    private void ResetScore()
+    {
+        player1Score = 0;
+        player2Score = 0;
+        foreach (var icon in player1ScoreSprites)
+        {
+            icon.color = Color.white;
+        }   
+        foreach (var icon in player2ScoreSprites)
+        {
+            icon.color = Color.white;
+        }
+        p1Victory.SetActive(false);
+        p2Victory.SetActive(false);
+        p1Defeat.SetActive(false);
+        p2Defeat.SetActive(false);
+    }
+    
+    
     private void FailedCut(ExampleRecognizerController.ScreenHalf screen)
     {
         if (screen == ExampleRecognizerController.ScreenHalf.top)

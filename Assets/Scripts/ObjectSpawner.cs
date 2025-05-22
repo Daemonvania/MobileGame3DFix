@@ -2,8 +2,20 @@ using System;
 using System.Collections;
 using Shapes2D;
 using UnistrokeGestureRecognition.Example;
+using UnityEditor;
 using UnityEngine;
 
+public class FloatRangeAttribute : PropertyAttribute
+{
+    public float Min;
+    public float Max;
+
+    public FloatRangeAttribute(float min, float max)
+    {
+        Min = min;
+        Max = max;
+    }
+}
 public class ObjectSpawner : MonoBehaviour
 {
     [SerializeField] private Transform spawnedObjectParent;
@@ -11,7 +23,7 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] private GameObject[] objectsToSpawn;
     [SerializeField] private Transform[] spawnPoints;
     
-    
+   
     [FloatRange(0f, 10f)]
     public Vector2 timeToSpawnRange = new Vector2(1f, 3f);
     
@@ -48,7 +60,14 @@ public class ObjectSpawner : MonoBehaviour
         foreach (var spawnpoint in spawnPoints)
         {
             GameObject spawnedObject = Instantiate(selectedObject, spawnpoint.position, Quaternion.identity, spawnedObjectParent);
-            spawnedObject.GetComponentInChildren<Arrow>().SetArrowImage(roundManager.GetSelectedCutSO().gestureImage);
+            if (spawnPoints[0] == spawnpoint)
+            {
+                spawnedObject.GetComponentInChildren<Arrow>().SetArrowImage(roundManager.GetSelectedCutSO().gestureImage, roundManager, ExampleRecognizerController.ScreenHalf.top);
+            }
+            else
+            {
+                spawnedObject.GetComponentInChildren<Arrow>().SetArrowImage(roundManager.GetSelectedCutSO().gestureImage, roundManager, ExampleRecognizerController.ScreenHalf.bottom);
+            }
         }
 
         StartCoroutine(EnableCutting(0.7f));

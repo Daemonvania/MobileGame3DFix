@@ -22,4 +22,4 @@ MonoBehaviour:
   - {x: 350, y: 200}
   - {x: 50, y: 200}
   _editorLineColor: {r: 1, g: 0.7253797, b: 0, a: 1}
-  _name: Line
+  _name: Line Right To Left

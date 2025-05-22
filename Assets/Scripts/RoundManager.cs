@@ -13,6 +13,7 @@ public class RoundManager : MonoBehaviour
     public delegate void RoundStart();
     public delegate void RoundEnd(ExampleRecognizerController.ScreenHalf screen);
     public delegate void SliceFailed(ExampleRecognizerController.ScreenHalf screen);
+    public delegate void ResetGameEvent();
     
     [SerializeField] private CutSO[] cutSOs;
     
@@ -23,18 +24,37 @@ public class RoundManager : MonoBehaviour
     public event RoundStart onRoundStart;
     public event RoundEnd onRoundEnd;
     public event SliceFailed onSliceFailed;
-
+    public event ResetGameEvent onResetGame;
+    
     private bool canCut = false;
     private bool topCanCut = false;
     private bool bottomCanCut = false;
     
     private CutSO selectedCutSO;
     
+    private bool isPlaying = false;
+    
     private void Start()
     {
-        StartRound();
+        // StartRound();
     }
 
+    public void StartGame()
+    {
+        ResetGame();
+        isPlaying = true;
+        StartRound();
+    }
+    
+    public void StopGame()
+    {
+        isPlaying = false;
+        canCut = false;
+        foreach (var recognizer in patternRecognizers)
+        {
+            recognizer.SetPattern(null);
+        }
+    }
     private void OnEnable()
     {
         foreach (var recognizer in patternRecognizers)
@@ -78,7 +98,10 @@ public class RoundManager : MonoBehaviour
             recognizer.SetPattern(null);
         }
 
-        StartCoroutine(WaitForNextRound(timeBetweenRounds));
+        if (isPlaying)
+        {
+            StartCoroutine(WaitForNextRound(timeBetweenRounds));
+        }
     }
     private IEnumerator WaitForNextRound(float waitTime)
     {
@@ -122,6 +145,11 @@ public class RoundManager : MonoBehaviour
                 onRoundEnd?.Invoke(ExampleRecognizerController.ScreenHalf.none);
                 RoundEnded();
             }
+    }
+    
+    public void ResetGame()
+    {
+        onResetGame?.Invoke();
     }
 
     public CutSO GetSelectedCutSO()

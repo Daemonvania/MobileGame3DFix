@@ -17,6 +17,8 @@ namespace UnistrokeGestureRecognition.Example {
         }
         
         [SerializeField] private List<ExampleGesturePattern> _patterns;
+        
+        //can centralize this so its always the same
         [SerializeField, Range(0.6f, 1f)] private float _minimumScore = 0.8f;
 
         // [SerializeField] private PathDrawerBase _pathDrawer;
@@ -71,10 +73,7 @@ namespace UnistrokeGestureRecognition.Example {
             _recognizeJob.Value.Complete();
 
             RecognizeResult<ExampleGesturePattern> result = _recognizer.Result;
-            Debug.Log($"{result.Pattern.Name}: {result.Score}");
-            Debug.Log(result.Pattern);
-            Debug.Log(_currentPattern);
-            
+
             if (result.Pattern == _currentPattern && result.Score >= _minimumScore) {
                 onSliceCompleted?.Invoke(screen, true);
                 // _nameController.Set($"{result.Pattern.Name}: {result.Score:0.00}");
@@ -134,10 +133,10 @@ namespace UnistrokeGestureRecognition.Example {
 
             if (screen == ScreenHalf.top)
             {
-                // Flip the path horizontally
+                // Flip the path horizontally and vertically
                 for (int i = 0; i < path.Length; i++)
                 {
-                    path[i] = new Vector2(Screen.width - path[i].x, path[i].y);
+                    path[i] = new Vector2(Screen.width - path[i].x, Screen.height - path[i].y);
                 }
             }
 
@@ -145,7 +144,6 @@ namespace UnistrokeGestureRecognition.Example {
         }
 
         private void Clear() {
-            _nameController.Clear();
             // _pathDrawer.Clear();
             _gestureRecorder.Reset();
         }

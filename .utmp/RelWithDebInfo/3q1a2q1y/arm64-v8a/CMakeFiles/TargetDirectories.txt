@@ -1,0 +1,5 @@
+C:/Users/Peter/Desktop/Games/MobileGame3D-2/.utmp/RelWithDebInfo/3q1a2q1y/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/Peter/Desktop/Games/MobileGame3D-2/.utmp/RelWithDebInfo/3q1a2q1y/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/Peter/Desktop/Games/MobileGame3D-2/.utmp/RelWithDebInfo/3q1a2q1y/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/Peter/Desktop/Games/MobileGame3D-2/.utmp/RelWithDebInfo/3q1a2q1y/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/Peter/Desktop/Games/MobileGame3D-2/.utmp/RelWithDebInfo/3q1a2q1y/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

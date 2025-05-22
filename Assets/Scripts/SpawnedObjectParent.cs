@@ -13,17 +13,18 @@ public class SpawnedObjectParent : MonoBehaviour
 
     private void OnEnable()
     {
-        roundManager.onRoundStart += OnRoundStart;
+        roundManager.onRoundStart += DestroyObjects;
+        roundManager.onResetGame += DestroyObjects;
     }
 
     private void OnDisable()
     {
-        roundManager.onRoundStart -= OnRoundStart;
+        roundManager.onRoundStart -= DestroyObjects;
+        roundManager.onResetGame -= DestroyObjects;
     }
     
-    private void OnRoundStart()
+    private void DestroyObjects()
     {
-        Debug.Log("Man what");
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
