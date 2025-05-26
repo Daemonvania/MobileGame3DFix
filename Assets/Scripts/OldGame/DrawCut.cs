@@ -10,8 +10,7 @@ public class DrawCut : MonoBehaviour
 {
     Vector3 pointA;
     Vector3 pointB;
-
-    [SerializeField] float CutDelay = 0.3f;
+    
     
     private LineRenderer cutRender;
     private bool animateCut;

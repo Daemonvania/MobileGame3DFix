@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2885496506178384038}
   m_Layer: 0
   m_Name: Tree
-  m_TagString: Untagged
+  m_TagString: SpawnedObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d828b2f62a1b3d84b83d3ca66faaea77, type: 3}
+  m_Name: V
+  m_EditorClassIdentifier: 
+  _path:
+  - {x: 0.115384616, y: 1}
+  - {x: 0.5, y: 0}
+  - {x: 0.88461536, y: 1}
+  _scalingMode: 0
+  _directionSensitivity: 1
+  _rotationSensitivity: 1
+  _editorPath:
+  - {x: 0, y: 50}
+  - {x: 125, y: 375}
+  - {x: 250, y: 50}
+  _editorLineColor: {r: 1, g: 0, b: 0, a: 1}
+  _name: V

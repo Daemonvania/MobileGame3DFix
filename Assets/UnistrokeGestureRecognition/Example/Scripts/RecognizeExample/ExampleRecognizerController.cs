@@ -3,6 +3,7 @@ using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
 using Lean.Touch;
+using Unity.Mathematics;
 
 namespace UnistrokeGestureRecognition.Example {
     public sealed class ExampleRecognizerController : MonoBehaviour {
@@ -130,7 +131,11 @@ namespace UnistrokeGestureRecognition.Example {
         private void RecognizeRecordedGesture() {
             // Retrieve the path
             var path = _gestureRecorder.Path;
-
+            
+            if (!IsGestureLargeEnough(path, minSize: 500f)) {
+                onSliceCompleted?.Invoke(screen, false); // or just return silently
+                return;
+            }
             if (screen == ScreenHalf.top)
             {
                 // Flip the path horizontally and vertically
@@ -142,7 +147,20 @@ namespace UnistrokeGestureRecognition.Example {
 
             _recognizeJob = _recognizer.ScheduleRecognition(path);
         }
+        private bool IsGestureLargeEnough(NativeSlice<float2> path, float minSize) {
+            if (path.Length < 2) return false;
 
+            float2 min = path[0];
+            float2 max = path[0];
+
+            for (int i = 1; i < path.Length; i++) {
+                min = math.min(min, path[i]);
+                max = math.max(max, path[i]);
+            }
+
+            float2 size = max - min;
+            return math.length(size) >= minSize;
+        }
         private void Clear() {
             // _pathDrawer.Clear();
             _gestureRecorder.Reset();

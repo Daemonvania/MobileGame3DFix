@@ -9,6 +9,7 @@ TagManager:
   - CutItem
   - RoundManager
   - SpawnedObjectParent
+  - SpawnedObject
   layers:
   - Default
   - TransparentFX

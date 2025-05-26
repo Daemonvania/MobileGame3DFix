@@ -75,7 +75,7 @@ public class Cutter : MonoBehaviour
         }
         
         var rightRigidbody = right.AddComponent<Rigidbody>();
-        rightRigidbody.AddRelativeForce(-cutPlane.normal * 250f);
+        rightRigidbody.AddRelativeForce(-cutPlane.normal * 100f);
         
         isBusy = false;
     }
@@ -384,68 +384,58 @@ public class Cutter : MonoBehaviour
         }
     }
 
-    private static void Fill(List<Vector3> _vertices, Plane _plane, GeneratedMesh _leftMesh, GeneratedMesh _rightMesh)
+private static void Fill(List<Vector3> _vertices, Plane _plane, GeneratedMesh _leftMesh, GeneratedMesh _rightMesh)
+{
+    // Calculate the center of the polygon
+    Vector3 centerPosition = Vector3.zero;
+    for (int i = 0; i < _vertices.Count; i++)
     {
-        //Firstly we need the center we do this by adding up all the vertices and then calculating the average
-        Vector3 centerPosition = Vector3.zero;
-        for (int i = 0; i < _vertices.Count; i++)
-        {
-            centerPosition += _vertices[i];
-        }
-        centerPosition /= _vertices.Count;
-
-        //We now need an Upward Axis we use the plane we cut the mesh with for that 
-        Vector3 up = new Vector3()
-        {
-            x = _plane.normal.x,
-            y = _plane.normal.y,
-            z = _plane.normal.z
-        };
-
-        Vector3 left = Vector3.Cross(_plane.normal, up);
-
-        Vector3 displacement = Vector3.zero;
-        Vector2 uv1 = Vector2.zero;
-        Vector2 uv2 = Vector2.zero;
-
-        for (int i = 0; i < _vertices.Count; i++)
-        {
-            displacement = _vertices[i] - centerPosition;
-            uv1 = new Vector2()
-            {
-                x = .5f + Vector3.Dot(displacement, left),
-                y = .5f + Vector3.Dot(displacement, up)
-            };
-
-            displacement = _vertices[(i + 1) % _vertices.Count] - centerPosition;
-            uv2 = new Vector2()
-            { 
-                x = .5f + Vector3.Dot(displacement, left),
-                y = .5f + Vector3.Dot(displacement, up)
-            };
-
-            Vector3[] vertices = {_vertices[i], _vertices[(i+1) % _vertices.Count], centerPosition};
-			Vector3[] normals = {-_plane.normal, -_plane.normal, -_plane.normal};
-			Vector2[] uvs   = {uv1, uv2, new(0.5f, 0.5f)};
-
-            MeshTriangle currentTriangle = new MeshTriangle(vertices, normals, uvs, originalMesh.subMeshCount + 1);
-
-            if(Vector3.Dot(Vector3.Cross(vertices[1] - vertices[0],vertices[2] - vertices[0]),normals[0]) < 0)
-            {
-                FlipTriangel(currentTriangle);
-            }
-            _leftMesh.AddTriangle(currentTriangle);
-
-            normals = new[] { _plane.normal, _plane.normal, _plane.normal };
-            currentTriangle = new MeshTriangle(vertices, normals, uvs, originalMesh.subMeshCount + 1);
-
-            if(Vector3.Dot(Vector3.Cross(vertices[1] - vertices[0],vertices[2] - vertices[0]),normals[0]) < 0)
-            {
-                FlipTriangel(currentTriangle);
-            }
-            _rightMesh.AddTriangle(currentTriangle);
-        
-        } 
+        centerPosition += _vertices[i];
     }
+    centerPosition /= _vertices.Count;
+
+    // Use the plane normal to determine the up direction
+    Vector3 up = _plane.normal;
+    Vector3 left = Vector3.Cross(_plane.normal, up);
+
+    for (int i = 0; i < _vertices.Count; i++)
+    {
+        Vector3 displacement = _vertices[i] - centerPosition;
+        Vector2 uv1 = new Vector2(
+            0.5f + Vector3.Dot(displacement, left),
+            0.5f + Vector3.Dot(displacement, up)
+        );
+
+        displacement = _vertices[(i + 1) % _vertices.Count] - centerPosition;
+        Vector2 uv2 = new Vector2(
+            0.5f + Vector3.Dot(displacement, left),
+            0.5f + Vector3.Dot(displacement, up)
+        );
+
+        Vector3[] vertices = { _vertices[i], _vertices[(i + 1) % _vertices.Count], centerPosition };
+        Vector3[] normals = { -_plane.normal, -_plane.normal, -_plane.normal };
+        Vector2[] uvs = { uv1, uv2, new Vector2(0.5f, 0.5f) };
+
+        // Use the submesh index of the original mesh
+        int submeshIndex = originalMesh.subMeshCount - 1;
+
+        MeshTriangle currentTriangle = new MeshTriangle(vertices, normals, uvs, submeshIndex);
+
+        if (Vector3.Dot(Vector3.Cross(vertices[1] - vertices[0], vertices[2] - vertices[0]), normals[0]) < 0)
+        {
+            FlipTriangel(currentTriangle);
+        }
+        _leftMesh.AddTriangle(currentTriangle);
+
+        normals = new[] { _plane.normal, _plane.normal, _plane.normal };
+        currentTriangle = new MeshTriangle(vertices, normals, uvs, submeshIndex);
+
+        if (Vector3.Dot(Vector3.Cross(vertices[1] - vertices[0], vertices[2] - vertices[0]), normals[0]) < 0)
+        {
+            FlipTriangel(currentTriangle);
+        }
+        _rightMesh.AddTriangle(currentTriangle);
+    }
+}
 }
     
