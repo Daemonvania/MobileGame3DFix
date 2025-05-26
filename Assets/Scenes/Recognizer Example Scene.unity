@@ -1957,6 +1957,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 613563162554557392, guid: 13bf582f1fae52d4689e8a30f73a7509, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 38.019
+      objectReference: {fileID: 0}
     - target: {fileID: 1714760370728092747, guid: 13bf582f1fae52d4689e8a30f73a7509, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
       value: 0.5

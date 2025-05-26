@@ -77,7 +77,7 @@ public class ManageScore : MonoBehaviour
     {
         if (screen == ExampleRecognizerController.ScreenHalf.top)
         {
-            player1ScoreSprites[player1Score].sprite = p2Dot;
+            player1ScoreSprites[player1Score].sprite = p1Dot;
             player1Score++;
             p1Checkmark.sprite = checkMark;
             p2Checkmark.sprite = cross;
