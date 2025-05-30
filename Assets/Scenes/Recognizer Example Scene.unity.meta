@@ -1,15 +1,7 @@
 fileFormatVersion: 2
-guid: 0468702c944ab0e4c8d4c3201863e4b9
+guid: 9829451cb001a1841bf2284da5ec3c8f
 DefaultImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 260736
-  packageName: Unistroke Gesture Recognition
-  packageVersion: 1.1
-  assetPath: Assets/UnistrokeGestureRecognition/Example/Scenes/Recognizer Example
-    Scene.unity
-  uploadId: 746337
