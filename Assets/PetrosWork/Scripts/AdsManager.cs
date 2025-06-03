@@ -25,15 +25,15 @@ public class AdsManager : MonoBehaviour
     }
 
 
-    private void OnEnable()
-    {
-        roundManager.onResetGame += ShowInterstitialAd;
-    }
-    private void OnDisable()
-    {
-        roundManager.onResetGame -= ShowInterstitialAd;
-    }
-    
+    // private void OnEnable()
+    // {
+    //     roundManager.onResetGame += ShowInterstitialAd;
+    // }
+    // private void OnDisable()
+    // {
+    //     roundManager.onResetGame -= ShowInterstitialAd;
+    // }
+    //
     public void ShowInterstitialAd()
     {
         if (interstitial != null)

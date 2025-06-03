@@ -1524,6 +1524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 658592624}
   MenuItems: {fileID: 538407013}
+  adsManager: {fileID: 2134920023}
   BG: {fileID: 1797409710}
   gameMenu: {fileID: 1641022332}
 --- !u!1 &913539823
@@ -4258,6 +4259,7 @@ GameObject:
   - component: {fileID: 2134920020}
   - component: {fileID: 2134920021}
   - component: {fileID: 2134920022}
+  - component: {fileID: 2134920023}
   m_Layer: 0
   m_Name: AdsManager
   m_TagString: Untagged
@@ -4327,6 +4329,19 @@ MonoBehaviour:
   _bannerPosition: 1
   _androidAdUnitId: Banner_Android
   _iOSAdUnitId: Banner_iOS
+--- !u!114 &2134920023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134920018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68552122345425242819be398ca9ad87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roundManager: {fileID: 0}
 --- !u!1001 &475301413151566676
 PrefabInstance:
   m_ObjectHideFlags: 0
