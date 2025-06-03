@@ -9,6 +9,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private RectTransform MenuItems;
     
+    [SerializeField] private AdsManager adsManager;
+    
     [SerializeField] Image BG;
     [SerializeField] private RectTransform gameMenu;
     
@@ -18,6 +20,8 @@ public class MenuManager : MonoBehaviour
     private void Awake()
     {
         roundManager = GameObject.FindWithTag("RoundManager").GetComponent<RoundManager>();
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
     }
     
     private void Start()
@@ -29,12 +33,12 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        MenuItems.DOMove(MenuItems.position + new Vector3(0, -2500, 0), 0.65f)
+        MenuItems.DOAnchorPos(MenuItems.anchoredPosition + new Vector2(0, -2500), 0.65f)
             .SetEase(Ease.InBack).OnComplete(() =>
             {
                 //waitt this insnt 
-                    MenuItems.position =
-                        new Vector3(MenuItems.position.x, 0, MenuItems.position.z);
+                    MenuItems.anchoredPosition =
+                        new Vector2(MenuItems.anchoredPosition.x, 0);
                     mainMenu.SetActive(false);
                     gameMenu.gameObject.SetActive(true);
                     BG.material.color = new Color(bgColor.r, bgColor.g, bgColor.b, bgColor.a);
@@ -47,13 +51,14 @@ public class MenuManager : MonoBehaviour
 
     void AnimateIngameMenu()
     {
-        gameMenu.position = new Vector3(-500, gameMenu.position.y, gameMenu.transform.position.z);
-        gameMenu.transform.DOLocalMoveX(0, 0.65f)
+        gameMenu.anchoredPosition = new Vector2(-500, gameMenu.anchoredPosition.y);
+        gameMenu.DOAnchorPos(new Vector2(0, 0), 0.65f)
             .SetEase(Ease.OutBack);
     }
     
     public void ReturnToMenu()
     {
+        adsManager.ShowInterstitialAd();
         roundManager.ResetGame();
         mainMenu.SetActive(true);
         gameMenu.gameObject.SetActive(false);
@@ -61,6 +66,7 @@ public class MenuManager : MonoBehaviour
     
     public void RestartGame()
     {
+        adsManager.ShowInterstitialAd();
         mainMenu.SetActive(false);
         gameMenu.gameObject.SetActive(true);
         roundManager.StartGame();
