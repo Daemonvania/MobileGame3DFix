@@ -32,7 +32,7 @@ public class BannerAd: MonoBehaviour
     Advertisement.Banner.SetPosition(_bannerPosition);
 
     // Configure the Load Banner button to call the LoadBanner() method when clicked:
-    _loadBannerButton.onClick.AddListener(LoadBanner);
+    LoadBanner();
     _loadBannerButton.interactable = true;
   }
  
@@ -55,11 +55,14 @@ public class BannerAd: MonoBehaviour
   {
       Debug.Log("Banner loaded");
 
-      // Configure the Show Banner button to call the ShowBannerAd() method when clicked:
-      _showBannerButton.onClick.AddListener(ShowBannerAd);
-      // Configure the Hide Banner button to call the HideBannerAd() method when clicked:
+      // // Configure the Show Banner button to call the ShowBannerAd() method when clicked:
+      // _showBannerButton.onClick.AddListener(ShowBannerAd);
+      // // Configure the Hide Banner button to call the HideBannerAd() method when clicked:
       _hideBannerButton.onClick.AddListener(HideBannerAd);
 
+      ShowBannerAd();
+      
+      
       // Enable both buttons:
       _showBannerButton.interactable = true;
       _hideBannerButton.interactable = true;     

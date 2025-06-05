@@ -51,6 +51,18 @@ public class AdsManager : MonoBehaviour
             Debug.LogWarning("Interstitial component is not assigned.");
         }
     }
+    
+    public void ShowBannerAd()
+    {
+        if (bannerAd != null)
+        {
+            bannerAd.LoadBanner();
+        }
+        else
+        {
+            Debug.LogWarning("BannerAd component is not assigned.");
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

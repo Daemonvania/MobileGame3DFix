@@ -70,6 +70,7 @@ public class MenuManager : MonoBehaviour
         roundManager.ResetGame();
         mainMenu.SetActive(true);
         gameMenu.gameObject.SetActive(false);
+        adsManager.ShowBannerAd();
     }
     
     public void RestartGame()
