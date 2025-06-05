@@ -79,6 +79,7 @@ public class ManageScore : MonoBehaviour
         if (screen == ExampleRecognizerController.ScreenHalf.top)
         {
             player1ScoreSprites[player1Score].sprite = p1Dot;
+            player1ScoreSprites[player1Score].rectTransform.DOPunchScale(new Vector3(1.1f, 1.1f, 1.1f), 0.6f, 5, 0.25f);
             player1Score++;
             p1Checkmark.sprite = checkMark;
             p2Checkmark.sprite = cross;
@@ -86,6 +87,8 @@ public class ManageScore : MonoBehaviour
         else if (screen == ExampleRecognizerController.ScreenHalf.bottom)
         {
             player2ScoreSprites[player2Score].sprite = p2Dot;
+            player2ScoreSprites[player2Score].rectTransform.DOPunchScale(new Vector3(1.1f, 1.1f, 1.1f), 0.6f, 5, 0.25f);
+
             player2Score++;
             p2Checkmark.sprite = checkMark;
             p1Checkmark.sprite = cross;

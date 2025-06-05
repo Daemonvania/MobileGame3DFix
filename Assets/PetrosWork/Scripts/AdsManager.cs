@@ -13,6 +13,7 @@ public class AdsManager : MonoBehaviour
         interstitial = GetComponent<Interstitial>();
         bannerAd = GetComponent<BannerAd>();
 
+        
         if (interstitial == null)
         {
             Debug.LogError("Interstitial component not found on AdsManager.");
@@ -25,15 +26,20 @@ public class AdsManager : MonoBehaviour
     }
 
 
-    // private void OnEnable()
-    // {
-    //     roundManager.onResetGame += ShowInterstitialAd;
-    // }
-    // private void OnDisable()
-    // {
-    //     roundManager.onResetGame -= ShowInterstitialAd;
-    // }
-    //
+    private void OnEnable()
+    {
+        roundManager.onResetGame += LoadAd;
+    }
+    private void OnDisable()
+    {
+        roundManager.onResetGame -= LoadAd;
+    }
+    
+    private void LoadAd()
+    {
+        interstitial.LoadAd();
+    }
+    
     public void ShowInterstitialAd()
     {
         if (interstitial != null)

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Shapes2D;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -8,11 +9,16 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private RectTransform MenuItems;
+
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private RectTransform pauseItems;
     
     [SerializeField] private AdsManager adsManager;
     
     [SerializeField] Image BG;
     [SerializeField] private RectTransform gameMenu;
+
+    [SerializeField] private AudioClip buttonClick;
     
     RoundManager roundManager;
 
@@ -20,6 +26,7 @@ public class MenuManager : MonoBehaviour
     private void Awake()
     {
         roundManager = GameObject.FindWithTag("RoundManager").GetComponent<RoundManager>();
+        pauseMenu.SetActive(false);
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
     }
@@ -33,6 +40,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
+        SoundEffectsManager.Instance.PlaySoundFXClip(buttonClick, transform, 0.5f);
         MenuItems.DOAnchorPos(MenuItems.anchoredPosition + new Vector2(0, -2500), 0.65f)
             .SetEase(Ease.InBack).OnComplete(() =>
             {
@@ -70,5 +78,28 @@ public class MenuManager : MonoBehaviour
         mainMenu.SetActive(false);
         gameMenu.gameObject.SetActive(true);
         roundManager.StartGame();
+    }
+    
+    public void PauseGame()
+    {
+        SoundEffectsManager.Instance.PlaySoundFXClip(buttonClick, transform, 0.5f);
+        pauseMenu.SetActive(true);
+        pauseItems.DOAnchorPos(pauseItems.anchoredPosition + new Vector2(0, -2500), 0.65f)
+            .SetEase(Ease.InBack).OnComplete(() =>
+            {
+                pauseItems.anchoredPosition = new Vector2(pauseItems.anchoredPosition.x, 0);
+            });
+        Time.timeScale = 0;
+    }
+    public void ResumeGame()
+    {
+        SoundEffectsManager.Instance.PlaySoundFXClip(buttonClick, transform, 0.5f);
+        pauseItems.DOAnchorPos(pauseItems.anchoredPosition + new Vector2(0, -2500), 0.65f)
+            .SetEase(Ease.InBack).OnComplete(() =>
+            {
+                pauseMenu.SetActive(false);
+                pauseItems.anchoredPosition = new Vector2(pauseItems.anchoredPosition.x, 0);
+            });
+        Time.timeScale = 1;
     }
 }

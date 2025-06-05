@@ -24,6 +24,7 @@ public class DrawCut : MonoBehaviour
 
     Transform spawnedObjectParent;
     
+    [SerializeField] private AudioClip cutSound;
     private void Awake()
     {
         spawnedObjectParent = GameObject.FindGameObjectWithTag("SpawnedObjectParent").transform;
@@ -97,6 +98,7 @@ public class DrawCut : MonoBehaviour
 
     public void OnExternalFingerUp(LeanFinger finger)
     {
+    
         Vector3 screenPos = finger.ScreenPosition;
         screenPos.z = -cam.transform.position.z;
         pointB = cam.ScreenToWorldPoint(screenPos);
@@ -145,6 +147,8 @@ public class DrawCut : MonoBehaviour
         {
             if (hit.gameObject.CompareTag("CutItem"))
             {
+                SoundEffectsManager.Instance.PlaySoundFXClip(
+                    cutSound, transform, 1f);
                 MeshFilter filter = hit.gameObject.GetComponentInChildren<MeshFilter>();
                 if (filter != null)
                 {
