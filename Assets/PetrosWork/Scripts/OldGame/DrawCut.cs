@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using BzKovSoft.ObjectSlicer;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
@@ -30,7 +31,7 @@ public class DrawCut : MonoBehaviour
         spawnedObjectParent = GameObject.FindGameObjectWithTag("SpawnedObjectParent").transform;
     }
 
-   
+    private bool hasPlayedSound = false;   
 
     void Start()
     {
@@ -70,12 +71,6 @@ public class DrawCut : MonoBehaviour
         Vector3 screenPos = finger.ScreenPosition;
         screenPos.z = -cam.transform.position.z;
         Vector3 currentPoint = cam.ScreenToWorldPoint(screenPos);
-
-        cutRender.positionCount = 2;
-        cutRender.SetPosition(0, pointA);
-        cutRender.SetPosition(1, currentPoint);
-        cutRender.startColor = Color.gray;
-        cutRender.endColor = Color.gray;
         
         // Direction change detection
         if (hasLastWorldPos)
@@ -114,19 +109,11 @@ public class DrawCut : MonoBehaviour
         // {
         //     OnExternalFingerDown(finger);
         // }
-        
-        cutRender.positionCount = 2;
-        cutRender.SetPosition(0, pointA);
-        cutRender.SetPosition(1, pointB);
-        animateCut = true;
     }
 
     void Update()
     {
-        if (animateCut)
-        {
-            cutRender.SetPosition(0, Vector3.Lerp(pointA, pointB, 1f));
-        }
+
     }
 
     // private IEnumerator CutCoroutine(LeanFinger finger)
@@ -147,14 +134,25 @@ public class DrawCut : MonoBehaviour
         {
             if (hit.gameObject.CompareTag("CutItem"))
             {
-                SoundEffectsManager.Instance.PlaySoundFXClip(
-                    cutSound, transform, 1f);
-                MeshFilter filter = hit.gameObject.GetComponentInChildren<MeshFilter>();
-                if (filter != null)
+                if (!hasPlayedSound)
                 {
-                    Cutter.Cut(hit.gameObject, pointInPlane, cutPlaneNormal, spawnedObjectParent);
+                    hasPlayedSound = true;
+                    SoundEffectsManager.Instance.PlaySoundFXClip(
+                        cutSound, transform, 1f);
                 }
+
+                IBzMeshSlicer slicable = hit.gameObject.GetComponent<IBzMeshSlicer>();
+                Plane cutPlane = new Plane(cutPlaneNormal, pointInPlane);
+                slicable.SliceAsync(cutPlane);
+                
+                // MeshFilter filter = hit.gameObject.GetComponentInChildren<MeshFilter>();
+                // if (filter != null)
+                // {
+                // Cutter.Cut(hit.gameObject, pointInPlane, cutPlaneNormal, spawnedObjectParent);
+                // }
             }
         }
+
+        hasPlayedSound = false;
     }
 }

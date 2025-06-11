@@ -23,7 +23,7 @@ public class SoundEffectsManager : MonoBehaviour
         audioSource.volume = volume;
         audioSource.Play();
 
-        Destroy(audioSource, clip.length);
+        Destroy(audioSource.gameObject, clip.length);
     }
 
     // Update is called once per frame

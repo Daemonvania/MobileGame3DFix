@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class SpawnedObjectParent : MonoBehaviour
@@ -25,24 +26,31 @@ public class SpawnedObjectParent : MonoBehaviour
         roundManager.onResetGame -= DestroyObjects;
     }
     
-    private void DestroyObjects()
+    private async void DestroyObjects()
     {
         foreach (Transform obj in transform)
         {
-            MeshRenderer renderer = obj.GetComponentInChildren<MeshRenderer>();
-            if (renderer != null)
+            foreach (MeshRenderer renderer in obj.GetComponentsInChildren<MeshRenderer>())
             {
-                Debug.Log("Destroying object: " + obj.name);
-                StartCoroutine(FadeOutAndDestroy(obj.gameObject, renderer));
+                if (renderer != null)
+                {
+                    StartCoroutine(FadeOut(renderer.gameObject, renderer));
+                }
             }
+        }
+        await Task.Delay(1000); // Wait for the fade out to complete
+        foreach (Transform obj in transform)
+        {
+            Destroy(obj.gameObject);
         }
     }
 
-    private IEnumerator FadeOutAndDestroy(GameObject obj, MeshRenderer renderer, float duration = 1.0f)
+    private IEnumerator FadeOut(GameObject obj, MeshRenderer renderer, float duration = 1.0f)
     {
         // Assign a unique instance of the fade material
         Material fadeMat = new Material(transparentFadeMaterial); // clone it
-        renderer.material = fadeMat;
+        renderer.materials = new Material[] { fadeMat }; // set the material to the renderer
+        // renderer.material = fadeMat;
 
         Color originalColor = fadeMat.color;
         float elapsed = 0f;
@@ -54,8 +62,6 @@ public class SpawnedObjectParent : MonoBehaviour
             fadeMat.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
             yield return null;
         }
-
-        Destroy(obj);
     }
 
 

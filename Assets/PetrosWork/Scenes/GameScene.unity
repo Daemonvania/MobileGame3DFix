@@ -2804,6 +2804,7 @@ MonoBehaviour:
   pauseItems: {fileID: 77853131}
   adsManager: {fileID: 2134920023}
   BG: {fileID: 1797409710}
+  pauseBG: {fileID: 2097574848}
   gameMenu: {fileID: 1641022332}
   buttonClick: {fileID: 8300000, guid: 89f4c712d308fa44c8c3c8c3c5ed5295, type: 3}
 --- !u!1 &913539823
@@ -2909,7 +2910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &989295100
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5489,7 +5490,7 @@ GameObject:
   - component: {fileID: 1797409711}
   - component: {fileID: 1797409710}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5526,7 +5527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 14f1def9384dd564f884bf5a987c7e11, type: 2}
   m_Color: {r: 0, g: 0, b: 0, a: 0.18431373}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -6781,7 +6782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 14f1def9384dd564f884bf5a987c7e11, type: 2}
   m_Color: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 0.93333334}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}

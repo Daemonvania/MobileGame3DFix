@@ -16,6 +16,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private AdsManager adsManager;
     
     [SerializeField] Image BG;
+    [SerializeField] Image pauseBG;
     [SerializeField] private RectTransform gameMenu;
 
     [SerializeField] private AudioClip buttonClick;
@@ -36,12 +37,13 @@ public class MenuManager : MonoBehaviour
         mainMenu.SetActive(true);
         gameMenu.gameObject.SetActive(false);
         bgColor = BG.material.color;
+        BG.gameObject.SetActive(false);
     }
 
     public void StartGame()
     {
         SoundEffectsManager.Instance.PlaySoundFXClip(buttonClick, transform, 0.5f);
-        MenuItems.DOAnchorPos(MenuItems.anchoredPosition + new Vector2(0, -2500), 0.65f)
+        MenuItems.DOAnchorPos(MenuItems.anchoredPosition + new Vector2(0, -500), 0.65f)
             .SetEase(Ease.InBack).OnComplete(() =>
             {
                 //waitt this insnt 
@@ -86,7 +88,8 @@ public class MenuManager : MonoBehaviour
         SoundEffectsManager.Instance.PlaySoundFXClip(buttonClick, transform, 0.5f);
         mainMenu.SetActive(false);
         pauseMenu.SetActive(true);
-        pauseItems.DOAnchorPos(pauseItems.anchoredPosition + new Vector2(0, -2500), 0.65f)
+        pauseBG.material.color = new Color(bgColor.r, bgColor.g, bgColor.b, bgColor.a);
+        pauseItems.DOAnchorPos(pauseItems.anchoredPosition + new Vector2(0, -500), 0.65f)
             .SetEase(Ease.InBack).OnComplete(() =>
             {
                 pauseItems.anchoredPosition = new Vector2(pauseItems.anchoredPosition.x, 0);
@@ -96,13 +99,14 @@ public class MenuManager : MonoBehaviour
     public void ResumeGame()
     {
         SoundEffectsManager.Instance.PlaySoundFXClip(buttonClick, transform, 0.5f);
-        pauseItems.DOAnchorPos(pauseItems.anchoredPosition + new Vector2(0, -2500), 0.65f)
+        pauseItems.DOAnchorPos(pauseItems.anchoredPosition + new Vector2(0, -500), 0.65f)
             .SetEase(Ease.InBack).OnComplete(() =>
             {
                 pauseMenu.SetActive(false);
                 mainMenu.SetActive(true);
                 pauseItems.anchoredPosition = new Vector2(pauseItems.anchoredPosition.x, 0);
             });
+        pauseBG.material.DOColor(new Color(bgColor.r, bgColor.g, bgColor.b, 0), 0.5f).SetEase(Ease.InSine);
         Time.timeScale = 1;
     }
 }

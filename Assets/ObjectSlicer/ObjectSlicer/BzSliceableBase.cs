@@ -25,11 +25,12 @@ namespace BzKovSoft.ObjectSlicer
 		public bool waitIfBusy;
 		public bool objectGrouping;
 
+		Plane _plane;
 		public async Task<BzSliceTryResult> SliceAsync(Plane plane, object sliceData)
 		{
 			if (this == null)  // if this component was destroyed
 				return null;
-
+			_plane = plane;
 			if (waitIfBusy)
 			{
 				await WaitTasksAsync();
@@ -514,6 +515,9 @@ namespace BzKovSoft.ObjectSlicer
 					var newMeshRenderer = BzSlicerHelper.GetSameComponentForDuplicate(mesh.MeshRenderer, gameObject, resultObject.newObject);
 					mesh.MeshRenderer = newMeshRenderer;
 				}
+				
+				Rigidbody rb = resultObject.newObject.GetComponent<Rigidbody>();
+				rb.AddRelativeForce(-_plane.normal * 50);
 			}
 
 			Profiler.BeginSample("ComponentManager.OnSlicedMainThread");
