@@ -75,7 +75,7 @@ public class Cutter : MonoBehaviour
         }
         
         var rightRigidbody = right.AddComponent<Rigidbody>();
-        rightRigidbody.AddRelativeForce(-cutPlane.normal * 100f);
+        rightRigidbody.AddRelativeForce(-cutPlane.normal * 150f);
         
         isBusy = false;
     }

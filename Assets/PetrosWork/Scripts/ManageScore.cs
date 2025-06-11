@@ -31,6 +31,10 @@ public class ManageScore : MonoBehaviour
     [SerializeField] private Sprite p1Dot;
     [SerializeField] private Sprite p2Dot;
     [SerializeField] private Sprite darkDot;
+    [Space]
+    [SerializeField] private AnalyticsManager analyticsManager; 
+    
+    
     private int player1Score = 0;
     private int player2Score = 0;
 
@@ -113,6 +117,12 @@ public class ManageScore : MonoBehaviour
 
     void ShowVictoryScreen(ExampleRecognizerController.ScreenHalf screen)
     {
+        if (analyticsManager != null)
+        {
+            string winner = screen == ExampleRecognizerController.ScreenHalf.top ? "Player 2" : "Player 1";
+            analyticsManager.GameCompleted(player1Score, player2Score, winner);
+            Debug.Log("AnalyticsLog");
+        }
         roundManager.StopGame();
         
         roundManager.SetCanCut(false);
@@ -171,7 +181,7 @@ public class ManageScore : MonoBehaviour
         //todo perhaps if it already appeared dont play it 
         
         checkmark.gameObject.SetActive(true);
-        checkmark.DOFade(1, 0.1f);
+        checkmark.DOFade(0.47f, 0.1f);
         
         int direction = isTopScreen ? 1 : -1;
         

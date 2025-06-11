@@ -84,6 +84,7 @@ public class MenuManager : MonoBehaviour
     public void PauseGame()
     {
         SoundEffectsManager.Instance.PlaySoundFXClip(buttonClick, transform, 0.5f);
+        mainMenu.SetActive(false);
         pauseMenu.SetActive(true);
         pauseItems.DOAnchorPos(pauseItems.anchoredPosition + new Vector2(0, -2500), 0.65f)
             .SetEase(Ease.InBack).OnComplete(() =>
@@ -99,6 +100,7 @@ public class MenuManager : MonoBehaviour
             .SetEase(Ease.InBack).OnComplete(() =>
             {
                 pauseMenu.SetActive(false);
+                mainMenu.SetActive(true);
                 pauseItems.anchoredPosition = new Vector2(pauseItems.anchoredPosition.x, 0);
             });
         Time.timeScale = 1;
