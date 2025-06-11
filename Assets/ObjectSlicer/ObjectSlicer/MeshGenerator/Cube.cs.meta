@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 79dae79ca255b73439169ba753e9920d
+timeCreated: 1462371173
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59618
+  packageName: Mesh Slicer
+  packageVersion: 3.0.5
+  assetPath: Assets/BzKovSoft/ObjectSlicer/MeshGenerator/Cube.cs
+  uploadId: 729314

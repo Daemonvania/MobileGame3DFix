@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 4f3e509fd9ee926448059457a3b0d38e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59618
+  packageName: Mesh Slicer
+  packageVersion: 3.0.5
+  assetPath: Assets/BzKovSoft/CharacterSlicer/CharacterComponentManager.cs
+  uploadId: 729314

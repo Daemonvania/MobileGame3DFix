@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c763f32fefe5a164fb92a5d07740ba7c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59618
+  packageName: Mesh Slicer
+  packageVersion: 3.0.5
+  assetPath: Assets/BzKovSoft/CharacterSlicer/Samples/Scripts/EventHandlers/RagdollSlicedHandler.cs
+  uploadId: 729314

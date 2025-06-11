@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3a6682d8f3fdcb04394418f92afb1f54
+timeCreated: 1500499414
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59618
+  packageName: Mesh Slicer
+  packageVersion: 3.0.5
+  assetPath: Assets/BzKovSoft/CharacterSlicer/Samples/MyAnimatorController.controller
+  uploadId: 729314

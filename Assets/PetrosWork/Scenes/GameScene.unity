@@ -5852,6 +5852,8 @@ MonoBehaviour:
   - {fileID: 6930641137391360532, guid: 7e244b40ec1c0654d987f5fd88a36895, type: 3}
   - {fileID: 6930641137391360532, guid: 088e579bd97e8de48bd18c1e2a4e3dfa, type: 3}
   - {fileID: 6930641137391360532, guid: 22ef683c729feb541a801e2c4875bf06, type: 3}
+  - {fileID: 6930641137391360532, guid: 479ed6a182de7e440addd197ecede7dd, type: 3}
+  - {fileID: 6930641137391360532, guid: 2db3ffb17c5f8754b84cc80b127013a2, type: 3}
   spawnPoints:
   - {fileID: 1354498745}
   - {fileID: 688394521}
@@ -6780,7 +6782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 0.7294118}
+  m_Color: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 0.93333334}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

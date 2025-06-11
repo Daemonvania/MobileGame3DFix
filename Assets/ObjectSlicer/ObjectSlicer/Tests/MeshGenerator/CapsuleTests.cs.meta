@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 7ae1919965dd5224bb4adb2ccae192eb
+timeCreated: 1511503317
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59618
+  packageName: Mesh Slicer
+  packageVersion: 3.0.5
+  assetPath: Assets/BzKovSoft/ObjectSlicer/Tests/MeshGenerator/CapsuleTests.cs
+  uploadId: 729314

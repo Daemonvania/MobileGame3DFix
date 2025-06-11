@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: dff720bec7447be42ae7f59c485333f4
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59618
+  packageName: Mesh Slicer
+  packageVersion: 3.0.5
+  assetPath: Assets/BzKovSoft/ObjectSlicer/Samples/Cartoon_Texture_Pack/readme.txt
+  uploadId: 729314

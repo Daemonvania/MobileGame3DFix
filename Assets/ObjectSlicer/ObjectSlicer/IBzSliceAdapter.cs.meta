@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 5a20694c0476548c996d8499c178fed7
+timeCreated: 1543471700
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59618
+  packageName: Mesh Slicer
+  packageVersion: 3.0.5
+  assetPath: Assets/BzKovSoft/ObjectSlicer/IBzSliceAdapter.cs
+  uploadId: 729314

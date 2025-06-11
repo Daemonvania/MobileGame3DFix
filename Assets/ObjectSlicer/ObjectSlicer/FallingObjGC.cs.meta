@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 97722b24589974a4a977fb7f0a096d97
+timeCreated: 1515433941
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59618
+  packageName: Mesh Slicer
+  packageVersion: 3.0.5
+  assetPath: Assets/BzKovSoft/ObjectSlicer/FallingObjGC.cs
+  uploadId: 729314

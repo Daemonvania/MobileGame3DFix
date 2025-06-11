@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 7a0e8c9f6de8a024a83516c0b8837c6d
+timeCreated: 1485984085
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59618
+  packageName: Mesh Slicer
+  packageVersion: 3.0.5
+  assetPath: Assets/BzKovSoft/CharacterSlicer/BzSliceableCharacter.cs
+  uploadId: 729314

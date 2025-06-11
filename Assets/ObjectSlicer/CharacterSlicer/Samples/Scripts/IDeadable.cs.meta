@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 1efc5e17cf5e0444f8051e527b438b1d
+timeCreated: 1514984204
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59618
+  packageName: Mesh Slicer
+  packageVersion: 3.0.5
+  assetPath: Assets/BzKovSoft/CharacterSlicer/Samples/Scripts/IDeadable.cs
+  uploadId: 729314

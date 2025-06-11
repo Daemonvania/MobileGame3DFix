@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 1f31e806c2aa5f24b921c93bde7846b6
+timeCreated: 1500298822
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59618
+  packageName: Mesh Slicer
+  packageVersion: 3.0.5
+  assetPath: Assets/BzKovSoft/CharacterSlicer/Samples/Scripts/EnemyManager.cs
+  uploadId: 729314

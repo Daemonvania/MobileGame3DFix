@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d2c71316c4dea3945979fc4016741b11
+timeCreated: 1504889065
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59618
+  packageName: Mesh Slicer
+  packageVersion: 3.0.5
+  assetPath: Assets/BzKovSoft/CharacterSlicer/Samples/MatBlood.mat
+  uploadId: 729314

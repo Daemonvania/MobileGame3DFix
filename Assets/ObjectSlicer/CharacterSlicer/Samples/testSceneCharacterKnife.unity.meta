@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 48434793b9194d64abdfe8ace40014cc
+timeCreated: 1500298401
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59618
+  packageName: Mesh Slicer
+  packageVersion: 3.0.5
+  assetPath: Assets/BzKovSoft/CharacterSlicer/Samples/testSceneCharacterKnife.unity
+  uploadId: 729314

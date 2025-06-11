@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 46a0d02182376eb4ea46dbd7248b2456
+timeCreated: 1463491610
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59618
+  packageName: Mesh Slicer
+  packageVersion: 3.0.5
+  assetPath: Assets/BzKovSoft/ObjectSlicer/Samples/Scenes/testSceneManual.unity
+  uploadId: 729314

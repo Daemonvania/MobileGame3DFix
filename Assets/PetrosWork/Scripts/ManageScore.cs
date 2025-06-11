@@ -181,7 +181,7 @@ public class ManageScore : MonoBehaviour
         //todo perhaps if it already appeared dont play it 
         
         checkmark.gameObject.SetActive(true);
-        checkmark.DOFade(0.47f, 0.1f);
+        checkmark.DOFade(0.55f, 0.1f);
         
         int direction = isTopScreen ? 1 : -1;
         

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 98e3d348c55e6a244b34dd502d9ed4cc
+timeCreated: 1518560502
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59618
+  packageName: Mesh Slicer
+  packageVersion: 3.0.5
+  assetPath: Assets/BzKovSoft/ObjectSlicer/Samples/Cartoon_Texture_Pack/Materials/Sand_Beach_Base.mat
+  uploadId: 729314
