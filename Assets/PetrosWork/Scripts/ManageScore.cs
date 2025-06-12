@@ -3,6 +3,8 @@ using DG.Tweening;
 using UnistrokeGestureRecognition.Example;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Threading.Tasks;
+using Task = System.Threading.Tasks.Task;
 
 public class ManageScore : MonoBehaviour
 {
@@ -32,7 +34,7 @@ public class ManageScore : MonoBehaviour
     [SerializeField] private Sprite p2Dot;
     [SerializeField] private Sprite darkDot;
     [Space]
-    [SerializeField] private AnalyticsManager analyticsManager; 
+    [SerializeField] private AnalyticsManager analyticsManager;
     
     
     private int player1Score = 0;
@@ -102,17 +104,19 @@ public class ManageScore : MonoBehaviour
             p1Checkmark.sprite = cross;
             p2Checkmark.sprite = cross;
         }
-        AnimateCheckmark(p1Checkmark, true);
-        AnimateCheckmark(p2Checkmark, false);
-        
         if (player1Score >= scoreToWin)
         {
             ShowVictoryScreen(ExampleRecognizerController.ScreenHalf.top);
+            return;
         }
-        else if (player2Score >= scoreToWin)
+        if (player2Score >= scoreToWin)
         {
             ShowVictoryScreen(ExampleRecognizerController.ScreenHalf.bottom);
+            return;
         }
+        
+        AnimateCheckmark(p1Checkmark, true);
+        AnimateCheckmark(p2Checkmark, false);
     }
 
     void ShowVictoryScreen(ExampleRecognizerController.ScreenHalf screen)
@@ -124,7 +128,6 @@ public class ManageScore : MonoBehaviour
             Debug.Log("AnalyticsLog");
         }
         roundManager.StopGame();
-        
         roundManager.SetCanCut(false);
         p1Checkmark.gameObject.SetActive(false);
         p2Checkmark.gameObject.SetActive(false);
@@ -176,12 +179,12 @@ public class ManageScore : MonoBehaviour
         }
     }
     
-    private void AnimateCheckmark(Image checkmark, bool isTopScreen)
+    private async void AnimateCheckmark(Image checkmark, bool isTopScreen)
     {
-        //todo perhaps if it already appeared dont play it 
-        
         checkmark.gameObject.SetActive(true);
-        checkmark.DOFade(1f, 1.5f);
+
+        await Task.Delay(130);
+        checkmark.DOFade(0.85f, 1.5f);
         
         int direction = isTopScreen ? 1 : -1;
         

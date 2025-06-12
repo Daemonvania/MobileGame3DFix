@@ -84,6 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6031282968950035342}
+  - component: {fileID: 5679025405209976755}
   m_Layer: 5
   m_Name: DefeatCanvas
   m_TagString: Untagged
@@ -112,6 +113,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -150}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5679025405209976755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7065209309449774527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5581539cd899d44b629d34d360720c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contents: {fileID: 6212938206469420035}
+  bg: {fileID: 233107047797136888}
 --- !u!1 &8688332993714613690
 GameObject:
   m_ObjectHideFlags: 0

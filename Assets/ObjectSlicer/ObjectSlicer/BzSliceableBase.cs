@@ -517,7 +517,7 @@ namespace BzKovSoft.ObjectSlicer
 				}
 				
 				Rigidbody rb = resultObject.newObject.GetComponent<Rigidbody>();
-				rb.AddRelativeForce(-_plane.normal * 50);
+				rb.AddRelativeForce(-_plane.normal * 73);
 			}
 
 			Profiler.BeginSample("ComponentManager.OnSlicedMainThread");
