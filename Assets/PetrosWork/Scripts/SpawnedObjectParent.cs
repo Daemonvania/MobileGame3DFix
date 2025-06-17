@@ -47,36 +47,54 @@ public class SpawnedObjectParent : MonoBehaviour
 
     private IEnumerator FadeOut(GameObject obj, MeshRenderer renderer, float duration = 1.0f)
     {
-        // Material fadeMat = new Material(transparentFadeMaterial); // clone it
-        // renderer.materials = new Material[] { fadeMat }; // set the material to the renderer
-        
-        foreach (Material fadeMat in renderer.materials)
+        Material[] materials = renderer.materials; // Creates copies for editing
+
+        // Prepare materials for transparency
+        foreach (Material fadeMat in materials)
         {
+            Debug.Log("Fading out: " + fadeMat.name);
+
             fadeMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
             fadeMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
             fadeMat.SetInt("_ZWrite", 0);
             fadeMat.SetInt("_Surface", 1);
-       
+
             fadeMat.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
-         
+
             fadeMat.SetShaderPassEnabled("DepthOnly", false);
             fadeMat.SetShaderPassEnabled("SHADOWCASTER", false);
-   
+
             fadeMat.SetOverrideTag("RenderType", "Transparent");
-    
+
             fadeMat.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
             fadeMat.EnableKeyword("_ALPHAPREMULTIPLY_ON");
-            
-            Color originalColor = fadeMat.color;
-            float elapsed = 0f;
+        }
 
-            while (elapsed < duration)
+        float elapsed = 0f;
+
+        // Get original colors
+        Color[] originalColors = new Color[materials.Length];
+        for (int i = 0; i < materials.Length; i++)
+        {
+            if (materials[i].HasProperty("_Color"))
+                originalColors[i] = materials[i].color;
+            else
+                Debug.LogWarning($"Material {materials[i].name} has no _Color property.");
+        }
+
+        // Fade all materials in one loop
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+
+            for (int i = 0; i < materials.Length; i++)
             {
-                elapsed += Time.deltaTime;
-                float alpha = Mathf.Lerp(originalColor.a, 0f, elapsed / duration);
-                fadeMat.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
-                yield return null;
+                Color c = originalColors[i];
+                materials[i].color = new Color(c.r, c.g, c.b, Mathf.Lerp(c.a, 0f, t));
             }
+
+            yield return null;
         }
     }
 

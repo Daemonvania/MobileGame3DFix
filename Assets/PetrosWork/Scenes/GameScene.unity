@@ -1070,7 +1070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5daf5047d1e4b54daa061ec3e064504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundManager: {fileID: 0}
+  roundManager: {fileID: 1877637321}
   transparentFadeMaterial: {fileID: 2100000, guid: 5ea38b6504b5bbe458306a1afaab5d4a, type: 2}
 --- !u!1 &507837457
 GameObject:
@@ -2533,7 +2533,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: b3ab7d46e6cd4c44191b3bae30799ebf, type: 3}
   m_Resource: {fileID: 8300000, guid: b3ab7d46e6cd4c44191b3bae30799ebf, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.279
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4350,6 +4350,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 542412534115181278, guid: 13bf582f1fae52d4689e8a30f73a7509, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d4f8f6ee7f4617a4fbd5506ecf167a61, type: 2}
     - target: {fileID: 630890603690781443, guid: 13bf582f1fae52d4689e8a30f73a7509, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -4358,6 +4362,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 1299339388741918015, guid: 13bf582f1fae52d4689e8a30f73a7509, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d4f8f6ee7f4617a4fbd5506ecf167a61, type: 2}
     - target: {fileID: 1714760370728092747, guid: 13bf582f1fae52d4689e8a30f73a7509, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
       value: 0.5
@@ -4406,6 +4414,10 @@ PrefabInstance:
       propertyPath: m_Parameters.colorGradient.key2.g
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4551397924473875754, guid: 13bf582f1fae52d4689e8a30f73a7509, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d4f8f6ee7f4617a4fbd5506ecf167a61, type: 2}
     - target: {fileID: 4653783544829085912, guid: 13bf582f1fae52d4689e8a30f73a7509, type: 3}
       propertyPath: screen
       value: 0
@@ -4430,10 +4442,22 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 5425909644975673973, guid: 13bf582f1fae52d4689e8a30f73a7509, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d4f8f6ee7f4617a4fbd5506ecf167a61, type: 2}
     - target: {fileID: 6196023420836623139, guid: 13bf582f1fae52d4689e8a30f73a7509, type: 3}
       propertyPath: cutSound
       value: 
       objectReference: {fileID: 8300000, guid: 2b360d9af268af34cac01044d909f2d7, type: 3}
+    - target: {fileID: 6667949185551068545, guid: 13bf582f1fae52d4689e8a30f73a7509, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d4f8f6ee7f4617a4fbd5506ecf167a61, type: 2}
+    - target: {fileID: 7505174445883355415, guid: 13bf582f1fae52d4689e8a30f73a7509, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d4f8f6ee7f4617a4fbd5506ecf167a61, type: 2}
     - target: {fileID: 7873176688536989765, guid: 13bf582f1fae52d4689e8a30f73a7509, type: 3}
       propertyPath: m_LocalPosition.x
       value: -27.69

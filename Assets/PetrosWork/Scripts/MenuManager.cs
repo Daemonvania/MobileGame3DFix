@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using DG.Tweening;
 using Shapes2D;
 using TMPro;
@@ -24,6 +25,9 @@ public class MenuManager : MonoBehaviour
     RoundManager roundManager;
 
     private Color bgColor;
+    
+    bool hasStarted = false;
+    
     private void Awake()
     {
         roundManager = GameObject.FindWithTag("RoundManager").GetComponent<RoundManager>();
@@ -40,8 +44,10 @@ public class MenuManager : MonoBehaviour
         BG.gameObject.SetActive(false);
     }
 
-    public void StartGame()
+    public async void StartGame()
     {
+        if (hasStarted) return;
+        hasStarted = true;
         SoundEffectsManager.Instance.PlaySoundFXClip(buttonClick, transform, 0.5f);
         MenuItems.DOAnchorPos(MenuItems.anchoredPosition + new Vector2(0, -500), 0.65f)
             .SetEase(Ease.InBack).OnComplete(() =>
@@ -56,6 +62,8 @@ public class MenuManager : MonoBehaviour
                     roundManager.StartGame();
             });
         BG.material.DOColor(new Color(bgColor.r, bgColor.g, bgColor.b, 0), 0.5f).SetEase(Ease.InSine);
+        await Task.Delay(700);
+        hasStarted = false;
     }
 
 
